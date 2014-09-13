@@ -5,18 +5,6 @@
         <data xmlns="http://www.netbeans.org/ns/j2ee-ejbjarproject/3">
             <name>TuMejorOpcion-ejb</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
-            <included-library dirs="200">file.reference.spring-social-web-1.1.0.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.spring-social-facebook-1.1.1.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.spring-social-core-1.1.0.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.spring-social-config-1.1.0.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.spring-aop-4.0.3.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.spring-beans-4.0.3.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.spring-context-4.0.3.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.spring-core-4.0.3.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.spring-expression-4.0.3.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.spring-web-4.0.3.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.spring-webmvc-4.0.3.RELEASE.jar</included-library>
-            <included-library dirs="200">file.reference.aopalliance-1.0.jar</included-library>
             <source-roots>
                 <root id="src.dir" name="Source Packages"/>
             </source-roots>

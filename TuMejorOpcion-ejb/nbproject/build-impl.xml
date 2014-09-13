@@ -792,62 +792,11 @@ exists or setup the property manually. For example like this:
         <!-- You can override this target in the ../build.xml file. -->
     </target>
     <target depends="compile,-library-inclusion-in-archive-weblogic,-library-inclusion-in-archive-by-user" name="library-inclusion-in-archive"/>
-    <target if="is.jars.in.ejbjar" name="-library-inclusion-in-archive-by-user">
-        <copyfiles files="${file.reference.spring-social-web-1.1.0.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.spring-social-facebook-1.1.1.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.spring-social-core-1.1.0.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.spring-social-config-1.1.0.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.spring-aop-4.0.3.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.spring-beans-4.0.3.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.spring-context-4.0.3.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.spring-core-4.0.3.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.spring-expression-4.0.3.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.spring-web-4.0.3.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.spring-webmvc-4.0.3.RELEASE.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.aopalliance-1.0.jar}" todir="${build.classes.dir}"/>
-    </target>
+    <target if="is.jars.in.ejbjar" name="-library-inclusion-in-archive-by-user"/>
     <target if="is.server.weblogic" name="-library-inclusion-in-archive-weblogic">
-        <basename file="${file.reference.spring-social-web-1.1.0.RELEASE.jar}" property="manifest.file.reference.spring-social-web-1.1.0.RELEASE.jar"/>
-        <basename file="${file.reference.spring-social-facebook-1.1.1.RELEASE.jar}" property="manifest.file.reference.spring-social-facebook-1.1.1.RELEASE.jar"/>
-        <basename file="${file.reference.spring-social-core-1.1.0.RELEASE.jar}" property="manifest.file.reference.spring-social-core-1.1.0.RELEASE.jar"/>
-        <basename file="${file.reference.spring-social-config-1.1.0.RELEASE.jar}" property="manifest.file.reference.spring-social-config-1.1.0.RELEASE.jar"/>
-        <basename file="${file.reference.spring-aop-4.0.3.RELEASE.jar}" property="manifest.file.reference.spring-aop-4.0.3.RELEASE.jar"/>
-        <basename file="${file.reference.spring-beans-4.0.3.RELEASE.jar}" property="manifest.file.reference.spring-beans-4.0.3.RELEASE.jar"/>
-        <basename file="${file.reference.spring-context-4.0.3.RELEASE.jar}" property="manifest.file.reference.spring-context-4.0.3.RELEASE.jar"/>
-        <basename file="${file.reference.spring-core-4.0.3.RELEASE.jar}" property="manifest.file.reference.spring-core-4.0.3.RELEASE.jar"/>
-        <basename file="${file.reference.spring-expression-4.0.3.RELEASE.jar}" property="manifest.file.reference.spring-expression-4.0.3.RELEASE.jar"/>
-        <basename file="${file.reference.spring-web-4.0.3.RELEASE.jar}" property="manifest.file.reference.spring-web-4.0.3.RELEASE.jar"/>
-        <basename file="${file.reference.spring-webmvc-4.0.3.RELEASE.jar}" property="manifest.file.reference.spring-webmvc-4.0.3.RELEASE.jar"/>
-        <basename file="${file.reference.aopalliance-1.0.jar}" property="manifest.file.reference.aopalliance-1.0.jar"/>
-        <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 jar-7 jar-8 jar-9 jar-10 jar-11 jar-12 "/>
-            <attribute name="jar-1-Extension-Name" value="${manifest.file.reference.spring-social-web-1.1.0.RELEASE.jar}"/>
-            <attribute name="jar-2-Extension-Name" value="${manifest.file.reference.spring-social-facebook-1.1.1.RELEASE.jar}"/>
-            <attribute name="jar-3-Extension-Name" value="${manifest.file.reference.spring-social-core-1.1.0.RELEASE.jar}"/>
-            <attribute name="jar-4-Extension-Name" value="${manifest.file.reference.spring-social-config-1.1.0.RELEASE.jar}"/>
-            <attribute name="jar-5-Extension-Name" value="${manifest.file.reference.spring-aop-4.0.3.RELEASE.jar}"/>
-            <attribute name="jar-6-Extension-Name" value="${manifest.file.reference.spring-beans-4.0.3.RELEASE.jar}"/>
-            <attribute name="jar-7-Extension-Name" value="${manifest.file.reference.spring-context-4.0.3.RELEASE.jar}"/>
-            <attribute name="jar-8-Extension-Name" value="${manifest.file.reference.spring-core-4.0.3.RELEASE.jar}"/>
-            <attribute name="jar-9-Extension-Name" value="${manifest.file.reference.spring-expression-4.0.3.RELEASE.jar}"/>
-            <attribute name="jar-10-Extension-Name" value="${manifest.file.reference.spring-web-4.0.3.RELEASE.jar}"/>
-            <attribute name="jar-11-Extension-Name" value="${manifest.file.reference.spring-webmvc-4.0.3.RELEASE.jar}"/>
-            <attribute name="jar-12-Extension-Name" value="${manifest.file.reference.aopalliance-1.0.jar}"/>
-        </manifest>
+        <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target depends="compile" name="library-inclusion-in-manifest">
-        <copyfiles files="${file.reference.spring-social-web-1.1.0.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.spring-social-facebook-1.1.1.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.spring-social-core-1.1.0.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.spring-social-config-1.1.0.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.spring-aop-4.0.3.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.spring-beans-4.0.3.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.spring-context-4.0.3.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.spring-core-4.0.3.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.spring-expression-4.0.3.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.spring-web-4.0.3.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.spring-webmvc-4.0.3.RELEASE.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.aopalliance-1.0.jar}" todir="${dist.ear.dir}/lib"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target name="-copy-meta-inf">
