@@ -123,4 +123,14 @@ public class Tienda {
         return false;
     }
     
+    
+    public void agregarBonosConReferenciaYo(ArrayList<Bono> ArregloBonos) {
+        for(int i = 0; i < ArregloBonos.size(); i++) {
+            Bono x = ArregloBonos.get(i);
+            if(x.darReferencia().equals(nombre)) {
+                bonos.add(x);
+            }
+        }
+    }
+    
 }

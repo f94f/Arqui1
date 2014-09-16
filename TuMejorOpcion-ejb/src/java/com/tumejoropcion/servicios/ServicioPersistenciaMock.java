@@ -14,10 +14,10 @@ package com.tumejoropcion.servicios;
 
 import com.tumejoropcion.bos.Bono;
 import com.tumejoropcion.bos.Tienda;
+import com.tumejoropcion.exception.OperacionInvalidaException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import javax.ejb.Stateless;
 
 /**
@@ -55,16 +55,26 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
      */
     public ServicioPersistenciaMock()
     {
-        if (vendedores == null)
+        if (tiendas == null)
         {
             bonos = new ArrayList<Bono>();
             
-            bonos.add(new Bono(0000001, 12000, "Sara", experiencia, true));
+            Date y = new Date(System.currentTimeMillis());
+            
+            System.out.println(y);
+            
+            bonos.add(new Bono(1, 12000, "Sara", y));
+            bonos.add(new Bono(0000002, 12000, "Lec Lee", "Mon/sep/15/2012", true));
+            bonos.add(new Bono(0000003, 12000, "Sara", new Date(), true));
+            bonos.add(new Bono(0000004, 12000, "Studio F", new Date(), true));
+            bonos.add(new Bono(0000005, 12000, "Fuera de Serie", new Date(), true));
+            bonos.add(new Bono(0000006, 12000, "Arturo Calle", new Date(), true));
+            bonos.add(new Bono(0000007, 12000, "Arturo Calle", new Date(), true));
+            bonos.add(new Bono(0000008, 12000, "Sara", new Date(), true));
             
             
             tiendas = new ArrayList<Tienda>();
 
-            //Agrega los muebles del sistema
             tiendas.add(new Tienda("Sara", 1));
             tiendas.add(new Tienda("Arturo Calle",2));
             tiendas.add(new Tienda("Fuera de Serie",3));
@@ -74,22 +84,16 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             tiendas.add(new Tienda("Pronto", 7));
             tiendas.add(new Tienda("Armi", 8));
 
-            //Inicializa el arreglo que contiene los usuarios
             usuarios = new ArrayList<Usuario>();
 
-            //Agrega usuarios al sistema
             usuarios.add(new Usuario("admin", "adminadmin", TipoUsuario.Administrador));
             usuarios.add(new Usuario("client", "clientclient", TipoUsuario.Cliente));
-
-            registrosVentas = new ArrayList<RegistroVenta>();
-            Random r = new Random();
-            for (int e = 0; e < 8; e++) {
-                RegistroVenta venta = new RegistroVenta();
-                venta.setCantidad(e);
-                venta.setProducto(muebles.get(e));
-                venta.setFechaVenta(new Date(r.nextInt()));
-                venta.setCiudad("Bogotá");
+            
+            for(int i = 0; i < tiendas.size(); i++) {
+                Tienda t = tiendas.get(i);
+                t.agregarBonosConReferenciaYo(bonos);
             }
+            
         }
     }
 
@@ -104,38 +108,34 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
     @Override
     public void create(Object obj) throws OperacionInvalidaException
     {
-        if (obj instanceof Vendedor)
+        if (obj instanceof Tienda)
         {
-            Vendedor v = (Vendedor) obj;
-            v.setIdentificacion(vendedores.size() + 1);
-            vendedores.add(v);
+            Tienda t = (Tienda) obj;
+            t.cambiarIdentificador(tiendas.size() + 1);
+            tiendas.add(t);
         }
-        else if (obj instanceof Mueble)
+        else if (obj instanceof Bono)
         {
 
-            Mueble m = (Mueble) obj;
-            m.setReferencia(muebles.size() + 1);
-            muebles.add(m);
+            Bono b = (Bono) obj;
+            b.cambiarCodigo(bonos.size() + 1);
+            bonos.add(b);
         } 
         else if (obj instanceof Usuario)
         {
-            Usuario m = (Usuario) obj;
+            Usuario u = (Usuario) obj;
             for (Usuario us : usuarios)
             {
-                if (us.getLogin().equals(m.getLogin()))
+                if (us.getLogin().equals(u.getLogin()))
                 {
-                    throw new OperacionInvalidaException("El usuario '" + m.getLogin() + "' ya ha sido registrado en el sistema");
+                    throw new OperacionInvalidaException("El usuario '" + u.getLogin() + "' ya ha sido registrado en el sistema");
                 }
-                if (us.getDocumento() == m.getDocumento() && us.getTipoDocumento().equals(m.getTipoDocumento()))
+                if (us.getDocumento() == u.getDocumento() && us.getTipoDocumento().equals(u.getTipoDocumento()))
                 {
-                    throw new OperacionInvalidaException("El usuario con documento '" + m.getDocumento() + "' ya ha sido registrado en el sistema");
+                    throw new OperacionInvalidaException("El usuario con documento '" + u.getDocumento() + "' ya ha sido registrado en el sistema");
                 }
             }
             usuarios.add(m);
-        } 
-        else if (obj instanceof RegistroVenta)
-        {
-            registrosVentas.add((RegistroVenta) obj);
         }
     }
 
@@ -146,32 +146,32 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
     @Override
     public void update(Object obj)
     {
-        if (obj instanceof Vendedor)
+        if (obj instanceof Tienda)
         {
-            Vendedor editar = (Vendedor) obj;
-            Vendedor vendedor;
-            for (int i = 0; i < vendedores.size(); i++)
+            Tienda editar = (Tienda) obj;
+            Tienda tienda;
+            for (int i = 0; i < tiendas.size(); i++)
             {
-                vendedor = vendedores.get(i);
-                if (vendedor.getIdentificacion() == editar.getIdentificacion())
+                tienda = tiendas.get(i);
+                if (tienda.darIdentificador() == editar.darIdentificador())
                 {
-                    vendedores.set(i, editar);
+                    tiendas.set(i, editar);
                     break;
                 }
 
             }
 
         }
-        else if (obj instanceof Mueble)
+        else if (obj instanceof Bono)
         {
-            Mueble editar = (Mueble) obj;
-            Mueble mueble;
-            for (int i = 0; i < muebles.size(); i++)
+            Bono editar = (Bono) obj;
+            Bono bono;
+            for (int i = 0; i < bonos.size(); i++)
             {
-                mueble = muebles.get(i);
-                if (mueble.getReferencia() == editar.getReferencia())
+                bono = bonos.get(i);
+                if (bono.darCodigo() == editar.darCodigo())
                 {
-                    muebles.set(i, editar);
+                    bonos.set(i, editar);
                     break;
                 }
             }
@@ -196,35 +196,36 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
     /**
      * Permite borrar un objeto dentro de la persistencia del sistema.
      * @param obj Objeto que representa la instancia de la entidad que se quiere borrar.
+     * @throws com.tumejoropcion.exception.OperacionInvalidaException
      */
     @Override
     public void delete(Object obj) throws OperacionInvalidaException
     {
-        if (obj instanceof Vendedor)
+        if (obj instanceof Tienda)
         {
-            Vendedor vendedorABorrar = (Vendedor) obj;
+            Tienda tiendaABorrar = (Tienda) obj;
 
-            for (int e = 0; e < vendedores.size(); e++)
+            for (int e = 0; e < tiendas.size(); e++)
             {
-                Vendedor ven = (Vendedor) vendedores.get(e);
-                if (ven.getIdentificacion() == vendedorABorrar.getIdentificacion())
+                Tienda ven = (Tienda) tiendas.get(e);
+                if (ven.darIdentificador()== tiendaABorrar.darIdentificador())
                 {
-                    vendedores.remove(e);
+                    tiendas.remove(e);
                     break;
                 }
             }
 
         } 
-        else if (obj instanceof Mueble)
+        else if (obj instanceof Bono)
         {
-            Mueble mueble;
-            Mueble eliminar = (Mueble) obj;
-            for (int i = 0; i < muebles.size(); i++)
+            Bono bono;
+            Bono eliminar = (Bono) obj;
+            for (int i = 0; i < bonos.size(); i++)
             {
-                mueble = muebles.get(i);
-                if (eliminar.getReferencia() == mueble.getReferencia())
+                bono = bonos.get(i);
+                if (eliminar.darCodigo() == bono.darCodigo())
                 {
-                    muebles.remove(i);
+                    bonos.remove(i);
                     break;
                 }
 
@@ -266,21 +267,17 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
     @Override
     public List findAll(Class c)
     {
-        if (c.equals(Mueble.class))
+        if (c.equals(Bono.class))
         {
-            return muebles;
+            return bonos;
         } 
-        else if (c.equals(Vendedor.class))
+        else if (c.equals(Tienda.class))
         {
-            return vendedores;
+            return tiendas;
         } 
         else if (c.equals(Usuario.class))
         {
             return usuarios;
-        } 
-        else if (c.equals(RegistroVenta.class))
-        {
-            return registrosVentas;
         } 
         else
         {
@@ -297,25 +294,25 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
     @Override
     public Object findById(Class c, Object id)
     {
-        if (c.equals(Vendedor.class))
+        if (c.equals(Tienda.class))
         {
-            for (Object v : findAll(c))
+            for (Object t : findAll(c))
             {
-                Vendedor ven = (Vendedor) v;
-                if (ven.getIdentificacion() == (Long)id)
+                Tienda tien = (Tienda) t;
+                if (tien.darIdentificador() == (Long)id)
                 {
-                    return ven;
+                    return tien;
                 }
             }
         } 
-        else if (c.equals(Mueble.class))
+        else if (c.equals(Bono.class))
         {
-            for (Object v : findAll(c))
+            for (Object b : findAll(c))
             {
-                Mueble mue = (Mueble) v;
-                if (id.equals(mue.getReferencia()))
+                Bono bon = (Bono) b;
+                if (id.equals(bon.darCodigo()))
                 {
-                    return mue;
+                    return bon;
                 }
             }
         } 
