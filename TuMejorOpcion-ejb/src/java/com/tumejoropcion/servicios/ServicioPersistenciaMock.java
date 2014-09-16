@@ -18,6 +18,7 @@ import com.tumejoropcion.exception.OperacionInvalidaException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.GregorianCalendar;
 import javax.ejb.Stateless;
 
 /**
@@ -59,18 +60,16 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
         {
             bonos = new ArrayList<Bono>();
             
-            Date y = new Date(System.currentTimeMillis());
-            
-            System.out.println(y);
+            GregorianCalendar c = new GregorianCalendar(2,12,2014);
+            Date y = c.getTime();
             
             bonos.add(new Bono(1, 12000, "Sara", y));
-            bonos.add(new Bono(0000002, 12000, "Lec Lee", "Mon/sep/15/2012", true));
-            bonos.add(new Bono(0000003, 12000, "Sara", new Date(), true));
-            bonos.add(new Bono(0000004, 12000, "Studio F", new Date(), true));
-            bonos.add(new Bono(0000005, 12000, "Fuera de Serie", new Date(), true));
-            bonos.add(new Bono(0000006, 12000, "Arturo Calle", new Date(), true));
-            bonos.add(new Bono(0000007, 12000, "Arturo Calle", new Date(), true));
-            bonos.add(new Bono(0000008, 12000, "Sara", new Date(), true));
+            bonos.add(new Bono(2, 12000, "Lec Lee", y));
+            bonos.add(new Bono(3, 12000, "Sara", y));
+            bonos.add(new Bono(4, 12000, "Studio F", y));
+            bonos.add(new Bono(5, 12000, "Fuera de Serie", y));
+            bonos.add(new Bono(6, 12000, "Arturo Calle", y));
+            bonos.add(new Bono(7, 12000, "Arturo Calle", y));
             
             
             tiendas = new ArrayList<Tienda>();
