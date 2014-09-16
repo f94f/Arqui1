@@ -40,7 +40,14 @@ public class Bono {
     private boolean activo;
     
     /**
-     * Inicializa el bono
+     * Constructor vacio
+     */
+    public Bono() {
+        
+    }
+    
+    /**
+     * Constructor del bono
      * @param codigo El codigo del bono.
      * @param valor El valor del bono.
      * @param referencia La tienda a la cual pertenece el bono.

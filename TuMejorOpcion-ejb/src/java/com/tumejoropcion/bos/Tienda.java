@@ -25,10 +25,21 @@ public class Tienda {
     private ArrayList<Bono> bonos;
     
     /**
+     * Identificador único de la tienda
+     */
+    public int identificador;
+    
+    /**
      * Inicializa la tienda.
      */
     public Tienda() {
         
+    }
+    
+    public Tienda(String nombre, int identificador) {
+        this.nombre = nombre;
+        this.identificador = identificador;
+        bonos = new ArrayList<Bono>();
     }
     
     /**
@@ -48,11 +59,27 @@ public class Tienda {
     }
     
     /**
+     * Muestra el indentificador de la tienda
+     * @return El identificador de la tienda
+     */
+    public int darIdentificador() {
+        return identificador;
+    }
+    
+    /**
      * Asigna un nuevo nombre a la tienda por uno que entra por parámetro.
      * @param nombre El nuevo nombre de la tienda. nombre != null & nombre != ""
      */
     public void cambiarNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    /**
+     * Asigna el nuevo identificador de la tienda por uno nuevo que entra por parámetro
+     * @param id El nuevo identificador de la tienda.
+     */
+    public void cambiarIdentificador(int id) {
+        identificador = id;
     }
     
     /**
