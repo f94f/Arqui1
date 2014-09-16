@@ -1,3 +1,4 @@
+
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id$ ServicioPersistenciaMock.java
@@ -14,11 +15,12 @@ package com.tumejoropcion.servicios;
 
 import com.tumejoropcion.bos.Bono;
 import com.tumejoropcion.bos.Tienda;
+import com.tumejoropcion.bos.Usuario;
 import com.tumejoropcion.exception.OperacionInvalidaException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.GregorianCalendar;
+import java.util.List;
 import javax.ejb.Stateless;
 
 /**
@@ -85,8 +87,8 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
 
             usuarios = new ArrayList<Usuario>();
 
-            usuarios.add(new Usuario("admin", "adminadmin", TipoUsuario.Administrador));
-            usuarios.add(new Usuario("client", "clientclient", TipoUsuario.Cliente));
+            usuarios.add(new Usuario("admin"));
+            usuarios.add(new Usuario("client"));
             
             for(int i = 0; i < tiendas.size(); i++) {
                 Tienda t = tiendas.get(i);
@@ -125,16 +127,13 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             Usuario u = (Usuario) obj;
             for (Usuario us : usuarios)
             {
-                if (us.getLogin().equals(u.getLogin()))
+                if (us.getEmail().equals(u.getEmail()))
                 {
-                    throw new OperacionInvalidaException("El usuario '" + u.getLogin() + "' ya ha sido registrado en el sistema");
+                    throw new OperacionInvalidaException("El usuario '" + u.getEmail() + "' ya ha sido registrado en el sistema");
                 }
-                if (us.getDocumento() == u.getDocumento() && us.getTipoDocumento().equals(u.getTipoDocumento()))
-                {
-                    throw new OperacionInvalidaException("El usuario con documento '" + u.getDocumento() + "' ya ha sido registrado en el sistema");
-                }
+                
             }
-            usuarios.add(m);
+            usuarios.add(u);
         }
     }
 
@@ -183,7 +182,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             for (int i = 0; i < usuarios.size(); i++)
             {
                 usuario = usuarios.get(i);
-                if (usuario.getLogin().equals(editar.getLogin()))
+                if (usuario.getEmail().equals(editar.getEmail()))
                 {
                     usuarios.set(i, editar);
                     break;
@@ -198,7 +197,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
      * @throws com.tumejoropcion.exception.OperacionInvalidaException
      */
     @Override
-    public void delete(Object obj) throws OperacionInvalidaException
+   public void delete(Object obj) throws OperacionInvalidaException
     {
         if (obj instanceof Tienda)
         {
@@ -234,27 +233,27 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
         else if (obj instanceof Usuario)
         {
             Usuario usuarioABorrar = (Usuario) obj;
-            for (RegistroVenta rv : registrosVentas)
-            {
-                if (rv.getComprador().getLogin().equals(usuarioABorrar.getLogin()))
-                {
-                    System.out.print("no borrado");
-                    throw new OperacionInvalidaException("El usuario ha realizado comprar y por lo tanto no puede ser eliminado del sistema.");
-                }
-            }
-            if (usuarioABorrar != null && usuarioABorrar.getLogin() != null)
-            {
-                for (int e = 0; e < usuarios.size(); e++)
-                {
-                    Usuario ven = (Usuario) usuarios.get(e);
-                    if (ven.getLogin().equals(usuarioABorrar.getLogin()))
-                    {
-                        usuarios.remove(e);
-                        System.out.print("borrado");
-                        break;
-                    }
-                }
-            }
+           // for (RegistroVenta rv : registrosVentas)
+            //{
+              //  if (rv.getComprador().getLogin().equals(usuarioABorrar.getLogin()))
+                //{
+                  //  System.out.print("no borrado");
+                    //throw new OperacionInvalidaException("El usuario ha realizado comprar y por lo tanto no puede ser eliminado del sistema.");
+                //}
+            //}
+           // if (usuarioABorrar != null && usuarioABorrar.getLogin() != null)
+            //{
+              //  for (int e = 0; e < usuarios.size(); e++)
+                //{
+                  //  Usuario ven = (Usuario) usuarios.get(e);
+                    //if (ven.getLogin().equals(usuarioABorrar.getLogin()))
+                    //{
+                     //   usuarios.remove(e);
+                       // System.out.print("borrado");
+                        //break;
+                    //}
+                //}
+            //}
         }
     }
 
@@ -320,7 +319,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             for (Object v : findAll(c))
             {
                 Usuario mue = (Usuario) v;
-                if (mue.getLogin().equals(id))
+                if (mue.getEmail().equals(id))
                 {
                     return mue;
                 }
