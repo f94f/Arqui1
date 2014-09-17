@@ -4,156 +4,144 @@
 <html>
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-        <title>Sign in with Facebook example</title>
+        <title>Tu mejor opcion</title>
+
+
+        <!-- Google Web Fonts
+  ================================================== -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,300italic,400,700|Julius+Sans+One|Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+
+        <!-- Basic Page Needs
+  ================================================== -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Favicons
+        ================================================== -->
+        <link rel="shortcut icon" href="images/favicon.png">
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">	
+
+        <!-- Mobile Specific Metas
+  ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/grid.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link rel="stylesheet" href="css/fontello.css" />
+        <link rel="stylesheet" href="css/animation.css" />
+
+        <link rel="stylesheet" href="js/layerslider/css/layerslider.css" />
+        <link rel="stylesheet" href="js/flexslider/flexslider.css" />
+        <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" />
+        <link rel="stylesheet" href="js/video-js/video-js.css" />
+
+        <!-- HTML5 Shiv
+        ================================================== -->
+        <script src="js/jquery.modernizr.js"></script>
+
     </head>
-    <body>
-        <tag:notloggedin>
-            <!DOCTYPE html>
-        <!--[if lte IE 8]>               <html class="ie8 no-js" lang="en">    <![endif]-->
-        <!--[if lte IE 10]>				 <html class="ie10 no-js" lang="en">   <![endif]-->
-            <head>
+    <tag:notloggedin>
 
-                <!-- Google Web Fonts
-          ================================================== -->
-                <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,300italic,400,700|Julius+Sans+One|Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
 
-                <!-- Basic Page Needs
-          ================================================== -->
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <body data-spy="scroll" data-target="#navigation" class="home animated" style="position: relative; min-width: 100%; min-height: 100%; z-index: 1; box-sizing: border-box;">
 
-                <title>Accio</title>	
 
-                <meta name="description" content="">
-                <meta name="author" content="">
 
-                <!-- Favicons
-                ================================================== -->
-                <link rel="shortcut icon" href="images/favicon.png">
-                <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-                <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-                <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">	
+            <!-- - - - - - - - - - - - - - Loader - - - - - - - - - - - - - - - - -->	
 
-                <!-- Mobile Specific Metas
-          ================================================== -->
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-                <!-- CSS
-          ================================================== -->
-                <link rel="stylesheet" href="css/style.css" />
-                <link rel="stylesheet" href="css/grid.css" />
-                <link rel="stylesheet" href="css/layout.css" />
-                <link rel="stylesheet" href="css/fontello.css" />
-                <link rel="stylesheet" href="css/animation.css" />
+            <div class="loader"></div><!--/ .loader-->
 
-                <link rel="stylesheet" href="js/layerslider/css/layerslider.css" />
-                <link rel="stylesheet" href="js/flexslider/flexslider.css" />
-                <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" />
-                <link rel="stylesheet" href="js/video-js/video-js.css" />
 
-                <!-- HTML5 Shiv
-                ================================================== -->
-                <script src="js/jquery.modernizr.js"></script>
+            <!-- - - - - - - - - - - - - end Loader - - - - - - - - - - - - - - - -->	
 
-            </head>
 
-            <body data-spy="scroll" data-target="#navigation" class="home">
+            <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->	
 
 
-                <!-- - - - - - - - - - - - - - BG Video - - - - - - - - - - - - - - - - -->		
+            <header id="header" class="transparent">
 
+                <div class="header-in clearfix">
 
+                    <h1 id="logo"><a href="index.html">Tu Mejor Opcion</a></h1>
 
+                    <a id="responsive-nav-button" class="responsive-nav-button" href="#"></a>
 
-                <!-- - - - - - - - - - - - - end BG Video - - - - - - - - - - - - - - - -->	
+                    <nav id="navigation" class="navigation" style>
 
+                        <ul>
+                            <li><a class="current-menu-item" href="#home">Inicio</a></li>
+                            <li><a href="#about">Quiénes somos</a></li>
+                            <li><a href="#team">Equipo</a></li>
 
-                <!-- - - - - - - - - - - - - - Loader - - - - - - - - - - - - - - - - -->	
+                        </ul>
 
+                    </nav><!--/ #navigation-->
+                </div><!--/ .header-in-->
 
-                <div class="loader"></div><!--/ .loader-->
+            </header><!--/ #header-->
 
 
-                <!-- - - - - - - - - - - - - end Loader - - - - - - - - - - - - - - - -->	
+            <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
 
 
-                <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->	
+            <!-- - - - - - - - - - - - - - Wrapper - - - - - - - - - - - - - - - - -->
 
 
-                <header id="header" class="transparent">
+            <div id="wrapper">
 
-                    <div class="header-in clearfix">
+                <section id="home" class="page">
 
-                        <h1 id="logo"><a href="index.html">Tu Mejor Opcion</a></h1>
+                    <section class="section parallax padding-off">
 
-                        <a id="responsive-nav-button" class="responsive-nav-button" href="#"></a>
+                        <div id="layerslider-container">
 
-                        <nav id="navigation" class="navigation">
+                            <div id="layerslider">
 
-                            <ul>
-                                <li class="current-menu-item"><a href="#home">Inicio</a>
+                                <div class="ls-layer" style="slidedirection: top; durationin: 1500; durationout: 1500; easingin: easeInOutQuint;">
 
-                                </li>
-                                <li><a href="#about">Quiénes somos</a></li>
-                                <li><a href="#team">Equipo</a></li>
 
-                            </ul>
+                                    <img alt="" class="ls-bg" src="http://www.taguritraleigh.com/images/slides/slider3.jpg">
 
-                        </nav><!--/ #navigation-->
+                                    <h1 class="ls-s2 align-center" style="top: 43%; left:130px; slidedirection : top; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
+                                        Regala un bono
+                                    </h1>
 
-                    </div><!--/ .header-in-->
+                                    <h1 class="ls-s2 align-center" style="top: 57%; left:200px; slidedirection : left; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
 
-                </header><!--/ #header-->
+                                        a tus amigos
+                                    </h1>
 
+                                    <h1 class="ls-s2 align-center" style="top: 71%; left:480px;  slidedirection : bottom; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
+                                        <a href="signin" class="button turquoise large opacityRun" >Ingresa a TMO</a>
+                                    </h1>
 
-                <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
 
+                                </div><!--/ .ls-layer-->
 
-                <!-- - - - - - - - - - - - - - Wrapper - - - - - - - - - - - - - - - - -->
 
 
-                <div id="wrapper">
+                            </div>
 
-                    <section id="home" class="page">
+                        </div><!--/ #layerslider-container-->	
 
-                        <section class="section parallax padding-off">
 
-                            <div id="layerslider-container">
 
-                                <div id="layerslider">
+                    </section><!--/ .section-->
 
-                                    <div class="ls-layer" style="slidedirection: top; durationin: 1500; durationout: 1500; easingin: easeInOutQuint;">
+                </section><!--/ .page-->
 
-                                        
-						<img alt="" class="ls-bg" src="http://www.taguritraleigh.com/images/slides/slider3.jpg">
-                                        
-                                        <h1 class="ls-s2 align-center" style="top: 43%; left: 35%; slidedirection : top; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
-                                            Regala un bono a tus amigos
-                                        </h1>
 
-                                        <h1 class="ls-s2 align-center" style="top: 77%; left: 460px; slidedirection : bottom; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
-
-                                            <a href="signin" class="button turquoise large opacity">Iniciar sesión</a>
-                                        </h1>
-
-
-
-                                    </div><!--/ .ls-layer-->
-
-
-
-                                </div>
-
-                            </div><!--/ #layerslider-container-->	
-
-
-
-                        </section><!--/ .section-->
-
-                    </section><!--/ .page-->
-
-
-
-                    <section id="about" class="section parallax parallax-bg-1 bg-turquoise-color">
+                <section id="about" class="page">
+                    <section  class="section parallax parallax-bg-1 bg-turquoise-color">
 
                         <div class="full-bg-image"></div>
 
@@ -166,7 +154,7 @@
                                             <blockquote class="quote-text">
                                                 <p>Somos una plataforma que te permite comprar y regalar bonos en tiendas de ropa a tus amigos</p>
                                             </blockquote>
-                                            <div class="quote-image"><img alt="Jack Black" src="images/off.gif"></div>
+                                            <div class="quote-image"><img alt="Jack Black" src="images/off.png"></div>
                                         </li>
 
                                     </ul><!--/ .quotes-->
@@ -193,226 +181,225 @@
                         </div><!--/ .container-->
 
                     </section><!--/ .section-->
+                </section><!--/ .page-->
 
 
-                    <section id="team" class="page">
 
-                        <section class="section bg-gray-color">
+                <section id="team" class="page">
+
+                    <section class="section bg-gray-color">
+
+                        <div class="container">
+
+                            <div class="row">
+
+                                <div class="col-xs-12">
+                                    <hgroup class="section-title align-center opacity">
+                                        <h1>Conoce a nuestro equipo</h1>
+                                        <h2>Desarrolladores detrás de esta aplicación</h2>	
+                                    </hgroup>			
+                                </div>
+
+                            </div><!--/ .row-->
+
+                        </div><!--/ .container-->	
+
+                        <section class="team-member">
 
                             <div class="container">
 
                                 <div class="row">
 
                                     <div class="col-xs-12">
-                                        <hgroup class="section-title align-center opacity">
-                                            <h1>Conoce a nuestro equipo</h1>
-                                            <h2>Desarrolladores detrás de esta aplicación</h2>	
-                                        </hgroup>			
+
+                                        <div class="team-contents clearfix">
+
+                                            <article class="scale">
+
+                                                <div class="contents clearfix">
+
+                                                    <div class="team-info">
+
+                                                        <div class="team-image">
+                                                            <a><img src="http://placehold.it/250x270" alt="" /></a>
+                                                        </div>
+
+                                                        <hgroup class="team-group">
+                                                            <h2 class="team-title">Gabriela Camargo</h2>
+                                                            <h5 class="team-position">Programadora</h5>
+                                                        </hgroup>
+
+                                                    </div><!--/ .team-info-->				
+
+                                                </div><!--/ .contents-->
+
+                                            </article>
+
+                                            <article class="scale">
+
+                                                <div class="contents clearfix">
+
+                                                    <div class="team-info">
+
+                                                        <div class="team-image">
+                                                            <a><img src="http://placehold.it/250x270" alt="" /></a>
+                                                        </div>
+
+                                                        <hgroup class="team-group">
+                                                            <h2 class="team-title">Juan Carlos Ruiz</h2>
+                                                            <h5 class="team-position">Programador - Documentación</h5>
+                                                        </hgroup>
+
+                                                    </div><!--/ .team-info-->
+
+
+                                                </div><!--/ .contents-->
+
+                                            </article>	
+
+                                            <article class="scale">
+
+                                                <div class="contents clearfix">
+
+                                                    <div class="team-info">
+
+                                                        <div class="team-image">
+                                                            <a ><img src="http://placehold.it/250x270" alt="" /></a>
+                                                        </div>
+
+                                                        <hgroup class="team-group">
+                                                            <h2 class="team-title">Felipe Matè</h2>
+                                                            <h5 class="team-position">Web Designer</h5>
+                                                        </hgroup>
+
+                                                    </div><!--/ .team-info-->
+
+
+
+                                                </div><!--/ .contents-->
+
+                                            </article>				
+
+                                            <article class="scale">
+
+                                                <div class="contents clearfix">
+
+                                                    <div class="team-info">
+
+                                                        <div class="team-image">
+                                                            <a><img src="http://placehold.it/250x270" alt="" /></a>
+                                                        </div>
+
+                                                        <hgroup class="team-group">
+                                                            <h2 class="team-title">Camilo Alfonso</h2>
+                                                            <h5 class="team-position">Programador - Diseñador web</h5>
+                                                        </hgroup>
+
+                                                    </div><!--/ .team-info-->
+
+
+                                                </div><!--/ .contents-->
+
+                                            </article>	
+
+                                        </div><!--/ .team-contents-->
+
                                     </div>
 
                                 </div><!--/ .row-->
 
-                            </div><!--/ .container-->	
+                            </div><!--/ .container-->
 
-                            <section class="team-member">
+                        </section><!--/ .team-member-->		
 
-                                <div class="container">
+                    </section>
 
-                                    <div class="row">
+                </section><!--/ .section-->
 
-                                        <div class="col-xs-12">
 
-                                            <div class="team-contents clearfix">
 
-                                                <article class="scale">
 
-                                                    <div class="contents clearfix">
+                <footer id="footer">
 
-                                                        <div class="team-info">
 
-                                                            <div class="team-image">
-                                                                <a><img src="http://placehold.it/250x270" alt="" /></a>
-                                                            </div>
 
-                                                            <hgroup class="team-group">
-                                                                <h2 class="team-title">Gabriela Camargo</h2>
-                                                                <h5 class="team-position">Programadora</h5>
-                                                            </hgroup>
 
-                                                        </div><!--/ .team-info-->				
+                    <div class="bottom-footer clearfix">
 
-                                                    </div><!--/ .contents-->
+                        <div class="container">
 
-                                                </article>
+                            <div class="row">
 
-                                                <article class="scale">
+                                <div class="col-sm-6">
 
-                                                    <div class="contents clearfix">
 
-                                                        <div class="team-info">
 
-                                                            <div class="team-image">
-                                                                <a><img src="http://placehold.it/250x270" alt="" /></a>
-                                                            </div>
+                                </div>
 
-                                                            <hgroup class="team-group">
-                                                                <h2 class="team-title">Juan Carlos Ruiz</h2>
-                                                                <h5 class="team-position">Programador - Documentación</h5>
-                                                            </hgroup>
+                                <div class="col-sm-3 col-sm-offset-3">
 
-                                                        </div><!--/ .team-info-->
+                                    <div class="developed">
+                                        Developed by <a target="_blank" >Aristogatos</a>
+                                    </div><!--/ .developed-->
 
+                                </div>
 
-                                                    </div><!--/ .contents-->
+                            </div><!--/ .row-->
 
-                                                </article>	
+                        </div><!--/ .container-->
 
-                                                <article class="scale">
+                    </div><!--/ .bottom-footer-->	
 
-                                                    <div class="contents clearfix">
+                </footer><!--/ #footer-->
 
-                                                        <div class="team-info">
 
-                                                            <div class="team-image">
-                                                                <a ><img src="http://placehold.it/250x270" alt="" /></a>
-                                                            </div>
+                <!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
 
-                                                            <hgroup class="team-group">
-                                                                <h2 class="team-title">Felipe Matè</h2>
-                                                                <h5 class="team-position">Web Designer</h5>
-                                                            </hgroup>
 
-                                                        </div><!--/ .team-info-->
+            </div><!--/ #wrapper-->
 
 
+            <!-- - - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - - -->
 
-                                                    </div><!--/ .contents-->
 
-                                                </article>				
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+            <!--[if lt IE 9]>
+                    <script src="js/respond.min.js"></script>
+            <![endif]-->
+            <script src="js/jquery.queryloader2.js"></script>
+            <script src="js/waypoints.min.js"></script>
+            <script src="js/jquery.easing.1.3.min.js"></script>
+            <script src="js/jquery.cycle.all.min.js"></script>
+            <script src="js/layerslider/js/layerslider.transitions.js"></script>
+            <script src="js/layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
+            <script src="js/jquery.mixitup.js"></script>
+            <script src="js/jquery.mb.YTPlayer.js"></script>
+            <script src="js/video-js/video.js"></script>
+            <script>
+                videojs.options.flash.swf = "js/video-js/video-js.swf";
+            </script>
+            <script src="js/jquery.smoothscroll.js"></script>
+            <script src="js/flexslider/jquery.flexslider.js"></script>
+            <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+            <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+            <script src="js/jquery.gmap.min.js"></script>
+            <script src="twitter/jquery.tweet.js"></script>
+            <script src="js/jquery.touchswipe.min.js"></script>
+            <script src="js/config.js"></script>
+            <script src="js/custom.js"></script>
 
-                                                <article class="scale">
 
-                                                    <div class="contents clearfix">
 
-                                                        <div class="team-info">
+        </tag:notloggedin>
+        <tag:loggedin>
+            <h1>Welcome ${facebook.name} (${facebook.id})</h1>
+            <form action="./post" method="post">
+                <textarea cols="80" rows="2" name="message"></textarea>
+                <input type="submit" name="post" value="statuses" />
+            </form>
+            <a href="./logout">logout</a>
+        </tag:loggedin>
 
-                                                            <div class="team-image">
-                                                                <a><img src="http://placehold.it/250x270" alt="" /></a>
-                                                            </div>
-
-                                                            <hgroup class="team-group">
-                                                                <h2 class="team-title">Camilo Alfonso</h2>
-                                                                <h5 class="team-position">Programador - Diseñador web</h5>
-                                                            </hgroup>
-
-                                                        </div><!--/ .team-info-->
-
-
-                                                    </div><!--/ .contents-->
-
-                                                </article>	
-
-                                            </div><!--/ .team-contents-->
-
-                                        </div>
-
-                                    </div><!--/ .row-->
-
-                                </div><!--/ .container-->
-
-                            </section><!--/ .team-member-->		
-
-
-
-                        </section><!--/ .section-->
-
-
-
-
-
-
-
-                        <footer id="footer">
-
-
-
-
-                            <div class="bottom-footer clearfix">
-
-                                <div class="container">
-
-                                    <div class="row">
-
-                                        <div class="col-sm-6">
-
-
-
-                                        </div>
-
-                                        <div class="col-sm-3 col-sm-offset-3">
-
-                                            <div class="developed">
-                                                Developed by <a target="_blank" >Aristogatos</a>
-                                            </div><!--/ .developed-->
-
-                                        </div>
-
-                                    </div><!--/ .row-->
-
-                                </div><!--/ .container-->
-
-                            </div><!--/ .bottom-footer-->	
-
-                        </footer><!--/ #footer-->
-
-
-                        <!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
-
-
-                </div><!--/ #wrapper-->
-
-
-                <!-- - - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - - -->
-
-
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-                <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
-                <!--[if lt IE 9]>
-                        <script src="js/respond.min.js"></script>
-                <![endif]-->
-                <script src="js/jquery.queryloader2.js"></script>
-                <script src="js/waypoints.min.js"></script>
-                <script src="js/jquery.easing.1.3.min.js"></script>
-                <script src="js/jquery.cycle.all.min.js"></script>
-                <script src="js/layerslider/js/layerslider.transitions.js"></script>
-                <script src="js/layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
-                <script src="js/jquery.mixitup.js"></script>
-                <script src="js/jquery.mb.YTPlayer.js"></script>
-                <script src="js/video-js/video.js"></script>
-                <script>
-                    videojs.options.flash.swf = "js/video-js/video-js.swf";
-                </script>
-                <script src="js/jquery.smoothscroll.js"></script>
-                <script src="js/flexslider/jquery.flexslider.js"></script>
-                <script src="js/fancybox/jquery.fancybox.pack.js"></script>
-                <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-                <script src="js/jquery.gmap.min.js"></script>
-                <script src="twitter/jquery.tweet.js"></script>
-                <script src="js/jquery.touchswipe.min.js"></script>
-                <script src="js/config.js"></script>
-                <script src="js/custom.js"></script>
-
-            </body>
-        </html>
-
-    </tag:notloggedin>
-    <tag:loggedin>
-        <h1>Welcome ${facebook.name} (${facebook.id})</h1>
-        <form action="./post" method="post">
-            <textarea cols="80" rows="2" name="message"></textarea>
-            <input type="submit" name="post" value="statuses" />
-        </form>
-        <a href="./logout">logout</a>
-    </tag:loggedin>
-</body>
+    </body>
 </html>
