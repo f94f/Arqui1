@@ -6,7 +6,6 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <title>Tu mejor opcion</title>
 
-
         <!-- Google Web Fonts
   ================================================== -->
         <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,300italic,400,700|Julius+Sans+One|Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
