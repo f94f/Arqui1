@@ -6,6 +6,11 @@
 
 package com.tumejoropcion.bos;
 
+import facebook4j.Friend;
+import facebook4j.Like;
+import facebook4j.ResponseList;
+import java.util.List;
+
 /**
  *
  * @author estudiante
@@ -13,6 +18,8 @@ package com.tumejoropcion.bos;
 public class Usuario {
     
     private String email;
+    private List likes;
+    private List friends;
     
     public Usuario(){
         
@@ -28,5 +35,21 @@ public class Usuario {
     
     public void setEmail(String nEmail){
         email = nEmail;
+    }
+    
+    public void setFriends(ResponseList<Friend> amigos){
+        friends = amigos;
+    }
+    
+    public List getFriends(){
+        return friends;
+    }
+    
+    public void setLikes(ResponseList<Like> nLikes){
+        likes = nLikes;
+    }
+    
+    public List getLikes(){
+        return likes;
     }
 }
