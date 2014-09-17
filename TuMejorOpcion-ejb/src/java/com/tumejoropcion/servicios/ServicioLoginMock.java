@@ -18,10 +18,7 @@ public class ServicioLoginMock implements IServicioLogin {
     Facebook facebook;
     
     public ServicioLoginMock() {
-        facebook = new FacebookFactory().getInstance();
-
-        facebook.setOAuthAppId("353716641461552", "6e7f7f532e9be78d691837bbeb20f31e");
-        facebook.setOAuthPermissions("email, user_likes, user_friends, publish_actions");
+        
     }
 
     /**

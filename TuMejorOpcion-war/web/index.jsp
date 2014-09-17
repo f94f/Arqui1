@@ -393,7 +393,7 @@
 
         </tag:notloggedin>
         <tag:loggedin>
-            <h1>Welcome ${facebook.name} (${facebook.id})</h1>
+            <h1>Welcome ${facebook.name} (${facebook.id}) HUEHUEHUE</h1>
             <form action="./post" method="post">
                 <textarea cols="80" rows="2" name="message"></textarea>
                 <input type="submit" name="post" value="statuses" />
