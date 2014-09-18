@@ -52,9 +52,9 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             GregorianCalendar c = new GregorianCalendar(2,12,2014);
             Date y = c.getTime();
             
-            bonos.add(new Bono(1, 12000, "Sara", y));
+            bonos.add(new Bono(1, 12000, "Zara", y));
             bonos.add(new Bono(2, 12000, "Lec Lee", y));
-            bonos.add(new Bono(3, 12000, "Sara", y));
+            bonos.add(new Bono(3, 12000, "Zara", y));
             bonos.add(new Bono(4, 12000, "Studio F", y));
             bonos.add(new Bono(5, 12000, "Fuera de Serie", y));
             bonos.add(new Bono(6, 12000, "Arturo Calle", y));
@@ -62,7 +62,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             
             tiendas = new ArrayList<Tienda>();
 
-            tiendas.add(new Tienda("Sara", 1));
+            tiendas.add(new Tienda("Zara", 1));
             tiendas.add(new Tienda("Arturo Calle",2));
             tiendas.add(new Tienda("Fuera de Serie",3));
             tiendas.add(new Tienda("Bkul", 4));
