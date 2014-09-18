@@ -117,11 +117,14 @@ public class Tienda {
                 return false;
             }
             else {
+                bonos.add(x);
                 return true;
+               
             }
         }
         return false;
     }
+
     
     
     public void agregarBonosConReferenciaYo(ArrayList<Bono> ArregloBonos) {

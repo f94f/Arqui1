@@ -392,13 +392,38 @@
 
         </tag:notloggedin>
         <tag:loggedin>
-            <h1>Welcome ${facebook.name} (${facebook.id}) HUEHUEHUE</h1>
-            <form action="./post" method="post">
-                <textarea cols="80" rows="2" name="message"></textarea>
-                <input type="submit" name="post" value="statuses" />
-            </form>
-            <a href="./logout">logout</a>
-        </tag:loggedin>
+        <h1>Welcome ${facebook.name} (${facebook.id})</h1>
+        <form action="./post" method="post">
+            <textarea  cols="80" rows="2" name="message"></textarea>
+            <input type="submit" name="post" value="statuses" />
+            
+        </form>
+        
+       <form action="./funcionalidadBonos" method="get">
+           <select name="Select" value="seleccionarTienda" multiple="multiple">
+                        <option value="1">Zara</option>
+                        <option value="2">Arturo Calle</option>
+                         <option value="3">Fuera De Serie</option>
+                          <option value="4">Bkul</option>
+                           <option value="5">Lec Lee</option>
+                            <option value="6">Studio F</option>
+                             <option value="7">Pronto</option>
+                             <option value="8">Armi</option>
+            </select>
+     
+            
+           <input type="text"  name="message"></input>
+            <input type="submit" name="comprarBonos" value="comprarBonos" />
+            
+        </form>
+        <form action="./redimirBono" method="get">
+           <input type="text"  name="message1"></input>
+            <input type="submit" name="comprarBonos" value="redimirBonos" />
+            
+        </form>
+        <a href="./logout">logout</a>
+    </tag:loggedin>
+
 
     </body>
 </html>

@@ -15,12 +15,16 @@ package beans;
 import com.tumejoropcion.bos.Bono;
 import com.tumejoropcion.bos.Tienda;
 import com.tumejoropcion.exception.OperacionInvalidaException;
+import com.tumejoropcion.servicios.IServicioPersistenciaMockLocal;
 import com.tumejoropcion.servicios.IServicioTiendaMockLocal;
+import com.tumejoropcion.servicios.ServicioPersistenciaMock;
 import com.tumejoropcion.servicios.ServicioTiendaMock;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 import javax.faces.context.FacesContext;
@@ -48,6 +52,11 @@ public class TiendaBean implements Serializable
      * Relación con la interfaz que provee los servicios necesarios del catálogo.
      */
     private IServicioTiendaMockLocal servicio;
+    /**
+     * Relación con la interfaz que provee los servicios necesarios del catálogo.
+     */
+    private IServicioPersistenciaMockLocal persistencia;
+    private Class Tienda;
 
     //-----------------------------------------------------------
     // Constructor
@@ -60,6 +69,7 @@ public class TiendaBean implements Serializable
     {
         tienda=new Tienda();
         servicio=new ServicioTiendaMock();
+        persistencia=new ServicioPersistenciaMock();
     }
 
     //-----------------------------------------------------------
@@ -125,8 +135,8 @@ public class TiendaBean implements Serializable
      */
         public boolean redimirBono(int codigo)
        { if(verficarSiBonoEstaActivo(codigo)){
-           tienda.redimirBono(codigo);
-           return true;
+           return tienda.redimirBono(codigo);
+           
         }else 
            return false;
            
@@ -139,7 +149,7 @@ public class TiendaBean implements Serializable
        * @return true si está activo, false si ya se venció el bono
        */
         public boolean verficarSiBonoEstaActivo(int codBono){
-         Date hoy=new Date(System.currentTimeMillis());
+         Date hoy=new Date();
          for(int i =0; i< tienda.darBonos().size();i++){
          Bono actual= tienda.darBonos().get(i);
          if(actual.darCodigo()==(codBono)){
@@ -171,15 +181,23 @@ public class TiendaBean implements Serializable
          */
         public void agregarBono(int valor){
             Date hoy = new Date();
-            DateFormat df1=DateFormat.getDateInstance(DateFormat.SHORT);
+            DateFormat df1= new SimpleDateFormat("dd-mm-yyyy");
             String s1 = df1.format(hoy);
-            String dateInString = "7-Jun-2015";
+            String dateInString = "07-06-2015";
                try {
-
+                    System.out.println("entro al try");
                         Date date =df1.parse(dateInString);
                         System.out.println(date);
                         System.out.println(df1.format(date));
+                persistencia.findAll(Tienda);
+                if(tienda.darBonos().isEmpty()){
+                    int codigo=(int) Math.random();
+                    Bono nuevo= new Bono(codigo, valor, tienda.darNombre(), date );
+                     tienda.agregarBono(nuevo);
+                }
+                 
                 for(int i =0; i< tienda.darBonos().size();i++){
+                    System.out.println("entro al for");
                 int codigo=(int) Math.random();
                 Bono actual= tienda.darBonos().get(i);
                 if(actual.darCodigo()!=(codigo)){
@@ -200,26 +218,38 @@ public class TiendaBean implements Serializable
         /**
          * agrega el bono a una tienda especifica
          * @param valor del bono
-         * @param nombreTienda tienda valida para nuestra aplicacion pertenecienta a la lista de tiendas dada.
+         * @param tiendaNue id de la tienda valida para nuestra aplicacion pertenecienta a la lista de tiendas dada.
          */
          public void agregarBonoATienda(int valor,Tienda tiendaNue){
+            System.out.println("entró al método"+valor );
+            Date hoy = new Date();
+            DateFormat df1= new SimpleDateFormat("dd-mm-yyyy");
+            String s1 = df1.format(hoy);
+            String dateInString = "07-06-2015";
             
-             //Date hoy = new Date();
-            DateFormat df1=DateFormat.getDateInstance(DateFormat.SHORT);
-            //String s1 = df1.format(hoy);
-            String dateInString = "7-Jun-2015";
-               try {
-                   Date date =df1.parse(dateInString);
+            tienda=tiendaNue;
+            GregorianCalendar c = new GregorianCalendar(2,12,2014);
+            Date y = c.getTime();
+             if(tienda.darBonos().isEmpty()){
+                    
+                    int codigo=(int) Math.random();
+                    Bono nuevo= new Bono(codigo, valor, tienda.darNombre(), y);
+                    boolean resp=tienda.agregarBono(nuevo); 
+                      System.out.println(resp );
+                     System.out.println("se agregó un nuevo bono con codigo"+ codigo );
+             }else{            
+                    System.out.println("se fue por el else" );
+                                              
                 for(int i =0; i< tienda.darBonos().size();i++){
                      int codigo=(int) Math.random();
                      Bono actual= tienda.darBonos().get(i);
                     if(actual.darCodigo()!=(codigo)){
-                    tiendaNue.agregarBono(new Bono(codigo, valor, tiendaNue.darNombre(), date));    
+                    System.out.println("se va a agregar el bono");
+                    tienda.agregarBono(new Bono(codigo, valor, tienda.darNombre(), y));    
+                    System.out.println("se agregó el bono");
                  }
                               
                 }
-                } catch (ParseException e) {
-                        e.printStackTrace();
-                }
+             }
     }
 }
