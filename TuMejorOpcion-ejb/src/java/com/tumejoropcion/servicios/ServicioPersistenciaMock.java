@@ -46,7 +46,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
      */
     public ServicioPersistenciaMock()
     {
-        if (tiendas == null)
+        if (tiendas == null || tiendas.size() == 0)
         {
             bonos = new ArrayList<Bono>();
             
@@ -60,7 +60,6 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             bonos.add(new Bono(5, 12000, "Fuera de Serie", y));
             bonos.add(new Bono(6, 12000, "Arturo Calle", y));
             bonos.add(new Bono(7, 12000, "Arturo Calle", y));
-            
             
             tiendas = new ArrayList<Tienda>();
 

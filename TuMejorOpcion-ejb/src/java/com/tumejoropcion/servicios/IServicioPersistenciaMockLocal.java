@@ -15,6 +15,7 @@ public interface IServicioPersistenciaMockLocal
     /**
      * Crea un objeto dentro de la persistencia del sistema.
      * @param obj Objeto que representa la instancia de la entidad que se quiere crear.
+     * @throws com.tumejoropcion.exception.OperacionInvalidaException
      */
     public void create(java.lang.Object obj)throws OperacionInvalidaException;
 
@@ -27,6 +28,7 @@ public interface IServicioPersistenciaMockLocal
     /**
      * Elimina un objeto dentro de la persistencia del sistema.
      * @param obj Objeto que representa la instancia de la entidad que se quiere borrar.
+     * @throws com.tumejoropcion.exception.OperacionInvalidaException
      */
     public void delete(java.lang.Object obj)throws OperacionInvalidaException;
 
