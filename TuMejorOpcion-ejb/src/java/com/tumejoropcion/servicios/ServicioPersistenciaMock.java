@@ -1,16 +1,4 @@
 
-/**
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id$ ServicioPersistenciaMock.java
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 3.0
- *
- * Ejercicio: Muebles de los Alpes
- * Autor: Juan Sebastián Urrego
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- */
-
 package com.tumejoropcion.servicios;
 
 import com.tumejoropcion.bos.Bono;
@@ -37,17 +25,17 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
     /**
      * Lista con los vendedores del sistema
      */
-    private static ArrayList<Bono> bonos;
+    private ArrayList<Bono> bonos;
 
     /**
      * Lista con los muebles del sistema
      */
-    private static ArrayList<Tienda> tiendas;
+    private ArrayList<Tienda> tiendas;
 
     /**
      * Lista con los usuarios del sistema
      */
-    private static ArrayList<Usuario> usuarios;
+    private ArrayList<Usuario> usuarios;
 
     //-----------------------------------------------------------
     // Constructor
@@ -230,31 +218,6 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             }
 
         } 
-        else if (obj instanceof Usuario)
-        {
-            Usuario usuarioABorrar = (Usuario) obj;
-           // for (RegistroVenta rv : registrosVentas)
-            //{
-              //  if (rv.getComprador().getLogin().equals(usuarioABorrar.getLogin()))
-                //{
-                  //  System.out.print("no borrado");
-                    //throw new OperacionInvalidaException("El usuario ha realizado comprar y por lo tanto no puede ser eliminado del sistema.");
-                //}
-            //}
-           // if (usuarioABorrar != null && usuarioABorrar.getLogin() != null)
-            //{
-              //  for (int e = 0; e < usuarios.size(); e++)
-                //{
-                  //  Usuario ven = (Usuario) usuarios.get(e);
-                    //if (ven.getLogin().equals(usuarioABorrar.getLogin()))
-                    //{
-                     //   usuarios.remove(e);
-                       // System.out.print("borrado");
-                        //break;
-                    //}
-                //}
-            //}
-        }
     }
 
     /**
