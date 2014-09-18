@@ -9,7 +9,6 @@ import javax.ejb.Stateful;
 
 /**
  * Implementación de los servicios de administración de una tienda en el sistema
- * @author Juan Sebastián Urrego
  */
 @Stateful
 public class ServicioTiendaMock implements IServicioTiendaMockRemote, IServicioTiendaMockLocal {

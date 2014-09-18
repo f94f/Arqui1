@@ -13,7 +13,6 @@ import javax.ejb.Stateless;
 
 /**
  * Implementación de los servicios de persistencia
- * @author Juan Sebastián Urrego
  */
 @Stateless
 public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote, IServicioPersistenciaMockLocal {
