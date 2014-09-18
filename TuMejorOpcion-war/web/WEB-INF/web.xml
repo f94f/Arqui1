@@ -28,7 +28,14 @@
         <servlet-name>redimirBono</servlet-name>
         <servlet-class>servlets.redimirBono</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>verAmigos</servlet-name>
+        <servlet-class>servlets.verAmigos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>verHistorial</servlet-name>
+        <servlet-class>servlets.verHistorial</servlet-class>
+    </servlet>
 
 
 
@@ -56,7 +63,15 @@
         <servlet-name>redimirBono</servlet-name>
         <url-pattern>/redimirBono</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>verAmigos</servlet-name>
+        <url-pattern>/verAmigos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>verHistorial</servlet-name>
+        <url-pattern>/verHistorial</url-pattern>
+    </servlet-mapping>
+    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

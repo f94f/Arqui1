@@ -11,44 +11,44 @@
  */
 
 package beans;
-
-
+ 
+ 
 import com.tumejoropcion.bos.Bono;
-import com.tumejoropcion.bos.Tienda;
 import com.tumejoropcion.exception.OperacionInvalidaException;
 import com.tumejoropcion.servicios.IServicioBonosMockLocal;
+import com.tumejoropcion.servicios.ServicioBonosMock;
+import com.tumejoropcion.servicios.ServicioPersistenciaMock;
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-
+ 
 /**
  * Managed Bean encargado de la administración de vendedores en el sistema
  * @author Juan Sebastián Urrego
  */
 public class BonoBean implements Serializable
 {
-
+ 
     //-----------------------------------------------------------
     // Atributos
     //-----------------------------------------------------------
-
+ 
     /**
      * Relación con la interfaz que provee los servicios necesarios del vendedor
      */
-    @EJB
+    
     private IServicioBonosMockLocal servicio;
-
+ 
     /**
      * Representa un nuevo bono
      */
     private Bono bono;
-
+ 
     
 
     //-----------------------------------------------------------
@@ -61,6 +61,7 @@ public class BonoBean implements Serializable
     public BonoBean()
     {
         bono=new Bono();
+        servicio=new ServicioBonosMock();
     }
 
     //-----------------------------------------------------------
@@ -91,6 +92,7 @@ public class BonoBean implements Serializable
      */
     public List<Bono> getBonos()
     {
+
         return servicio.getBono();
     }
 
@@ -104,15 +106,8 @@ public class BonoBean implements Serializable
      */
     public void agregarBono() throws OperacionInvalidaException
     {
-        try 
-        {
-            servicio.agregarBono(bono);
-            bono=new Bono();
-        }
-        catch (OperacionInvalidaException ex)
-        {
-            throw new OperacionInvalidaException(ex.getMessage());
-        }
+        servicio.agregarBono(bono);
+        bono=new Bono();
     }
 
    
@@ -120,20 +115,18 @@ public class BonoBean implements Serializable
      * Elimina un vendedor del sistema
      * @param evento Evento que contiene como parámetro el ID del vendedor
      */
-    public void eliminarBono(ActionEvent evento) throws OperacionInvalidaException
+    public void eliminarBono(ActionEvent evento) 
     {
         FacesContext context = FacesContext.getCurrentInstance();
         Map map = context.getExternalContext().getRequestParameterMap();
         
-        try
-        {
+        try {
             servicio.eliminarBono(bono.darCodigo());
-        }
-        catch (OperacionInvalidaException ex)
-        {
-            throw new OperacionInvalidaException(ex.getMessage());
+        } catch (OperacionInvalidaException ex) {
+            Logger.getLogger(BonoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 
     
 }

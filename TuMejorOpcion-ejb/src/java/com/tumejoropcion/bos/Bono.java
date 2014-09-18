@@ -39,6 +39,7 @@ public class Bono {
      */
     private boolean activo;
     
+    private String tienda;
     /**
      * Constructor vacio
      */
@@ -58,6 +59,7 @@ public class Bono {
         this.valor = valor;
         this.referencia = referencia;
         fechaVencimiento = fv;
+     
         activo = true;
     }
     
@@ -84,6 +86,11 @@ public class Bono {
     public String darReferencia() {
         return referencia;
     }
+    public String darTienda()
+    {
+        return tienda;
+    }
+    
     
     /**
      * Muestra la fehca límite del bono para cangear.

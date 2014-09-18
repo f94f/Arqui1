@@ -10,7 +10,7 @@ import javax.ejb.Local;
 @Local
 public interface IServicioPersistenciaMockLocal
 {
-
+    
     /**
      * Crea un objeto dentro de la persistencia del sistema.
      * @param obj Objeto que representa la instancia de la entidad que se quiere crear.

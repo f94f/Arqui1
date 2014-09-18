@@ -17,6 +17,8 @@ import com.tumejoropcion.bos.Tienda;
 import com.tumejoropcion.exception.OperacionInvalidaException;
 import com.tumejoropcion.servicios.IServicioPersistenciaMockLocal;
 import com.tumejoropcion.servicios.IServicioTiendaMockLocal;
+import com.tumejoropcion.servicios.IServicioBonosMockLocal;
+import com.tumejoropcion.servicios.ServicioBonosMock;
 import com.tumejoropcion.servicios.ServicioPersistenciaMock;
 import com.tumejoropcion.servicios.ServicioTiendaMock;
 import java.io.Serializable;
@@ -52,11 +54,10 @@ public class TiendaBean implements Serializable
      * Relación con la interfaz que provee los servicios necesarios del catálogo.
      */
     private IServicioTiendaMockLocal servicio;
-    /**
-     * Relación con la interfaz que provee los servicios necesarios del catálogo.
-     */
-    private IServicioPersistenciaMockLocal persistencia;
-    private Class Tienda;
+    
+    private IServicioBonosMockLocal contactoBono;
+    
+
 
     //-----------------------------------------------------------
     // Constructor
@@ -69,7 +70,7 @@ public class TiendaBean implements Serializable
     {
         tienda=new Tienda();
         servicio=new ServicioTiendaMock();
-        persistencia=new ServicioPersistenciaMock();
+        contactoBono = new ServicioBonosMock();
     }
 
     //-----------------------------------------------------------
@@ -129,19 +130,7 @@ public class TiendaBean implements Serializable
         servicio.eliminarTienda(tienda.darIdentificador());
     }
     
-    /**
-     * Metodo que permite a una tienda redimir un bono con un codigo dado
-     * @param codigo codigo del bono a redimir
-     */
-        public boolean redimirBono(int codigo)
-       { if(verficarSiBonoEstaActivo(codigo)){
-           return tienda.redimirBono(codigo);
-           
-        }else 
-           return false;
-           
-           
-       }
+    
               
       /**
        * verifica si el bono está activo y/o vigente
@@ -179,77 +168,10 @@ public class TiendaBean implements Serializable
          * agregar bono a una tienda con un monto de dinero dado.
          * @param valor 
          */
-        public void agregarBono(int valor){
-            Date hoy = new Date();
-            DateFormat df1= new SimpleDateFormat("dd-mm-yyyy");
-            String s1 = df1.format(hoy);
-            String dateInString = "07-06-2015";
-               try {
-                    System.out.println("entro al try");
-                        Date date =df1.parse(dateInString);
-                        System.out.println(date);
-                        System.out.println(df1.format(date));
-                persistencia.findAll(Tienda);
-                if(tienda.darBonos().isEmpty()){
-                    int codigo=(int) Math.random();
-                    Bono nuevo= new Bono(codigo, valor, tienda.darNombre(), date );
-                     tienda.agregarBono(nuevo);
-                }
-                 
-                for(int i =0; i< tienda.darBonos().size();i++){
-                    System.out.println("entro al for");
-                int codigo=(int) Math.random();
-                Bono actual= tienda.darBonos().get(i);
-                if(actual.darCodigo()!=(codigo)){
-                                  
-                    Bono nuevo= new Bono(codigo, valor, tienda.darNombre(), date );
-                     tienda.agregarBono(nuevo);
-                }
-                              
-                }
-                } catch (ParseException e) {
-                        e.printStackTrace();
-                }
-                
-            
+        public void agregarBono(int valor) throws OperacionInvalidaException{
+            Bono b = new Bono(1222, valor, "zara",new Date(System.currentTimeMillis()));
+            contactoBono.agregarBono(b);
                        
         }
-        
-        /**
-         * agrega el bono a una tienda especifica
-         * @param valor del bono
-         * @param tiendaNue id de la tienda valida para nuestra aplicacion pertenecienta a la lista de tiendas dada.
-         */
-         public void agregarBonoATienda(int valor,Tienda tiendaNue){
-            System.out.println("entró al método"+valor );
-            Date hoy = new Date();
-            DateFormat df1= new SimpleDateFormat("dd-mm-yyyy");
-            String s1 = df1.format(hoy);
-            String dateInString = "07-06-2015";
-            
-            tienda=tiendaNue;
-            GregorianCalendar c = new GregorianCalendar(2,12,2014);
-            Date y = c.getTime();
-             if(tienda.darBonos().isEmpty()){
-                    
-                    int codigo=(int) Math.random();
-                    Bono nuevo= new Bono(codigo, valor, tienda.darNombre(), y);
-                    boolean resp=tienda.agregarBono(nuevo); 
-                      System.out.println(resp );
-                     System.out.println("se agregó un nuevo bono con codigo"+ codigo );
-             }else{            
-                    System.out.println("se fue por el else" );
-                                              
-                for(int i =0; i< tienda.darBonos().size();i++){
-                     int codigo=(int) Math.random();
-                     Bono actual= tienda.darBonos().get(i);
-                    if(actual.darCodigo()!=(codigo)){
-                    System.out.println("se va a agregar el bono");
-                    tienda.agregarBono(new Bono(codigo, valor, tienda.darNombre(), y));    
-                    System.out.println("se agregó el bono");
-                 }
-                              
-                }
-             }
+      
     }
-}

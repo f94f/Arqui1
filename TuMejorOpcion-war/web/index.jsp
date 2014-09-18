@@ -394,12 +394,13 @@
         <tag:loggedin>
         <h1>Welcome ${facebook.name} (${facebook.id})</h1>
         <form action="./post" method="post">
-            <textarea  cols="80" rows="2" name="message"></textarea>
-            <input type="submit" name="post" value="statuses" />
+            <textarea  cols="50" rows="1" name="message"></textarea>
+            <input type="submit" name="post" value="Post en facebook" />
             
         </form>
         
        <form action="./funcionalidadBonos" method="get">
+           Seleccione la tienda de la cual quiere comprar su bono y el valor del bono, el cual debe ser mayor a 10.000 COP:
            <select name="Select" value="seleccionarTienda" multiple="multiple">
                         <option value="1">Zara</option>
                         <option value="2">Arturo Calle</option>
@@ -412,13 +413,33 @@
             </select>
      
             
-           <input type="text"  name="message"></input>
+           <input type="text"  name="messagecomprar"></input>
             <input type="submit" name="comprarBonos" value="comprarBonos" />
             
         </form>
         <form action="./redimirBono" method="get">
+            Selecciones la tienda a al que pertenece el bono e ingrese el codigo.
+             <select name="Select" value="seleccionarTienda" multiple="multiple">
+                        <option value="1">Zara</option>
+                        <option value="2">Arturo Calle</option>
+                         <option value="3">Fuera De Serie</option>
+                          <option value="4">Bkul</option>
+                           <option value="5">Lec Lee</option>
+                            <option value="6">Studio F</option>
+                             <option value="7">Pronto</option>
+                             <option value="8">Armi</option>
+            </select>
            <input type="text"  name="message1"></input>
-            <input type="submit" name="comprarBonos" value="redimirBonos" />
+            <input type="submit" name="comprarBonos" value="Redimir Bonos" />
+            
+        </form>
+        <form action="./verAmigos" method="post">
+            
+            <input type="submit" name="verAmigos" value="Ver Amigos" />
+            
+        </form>
+        <form action="./verHistorial" method="post">
+             <input type="submit" name="verHistorial" value="Ver Historial de bonos" />
             
         </form>
         <a href="./logout">logout</a>

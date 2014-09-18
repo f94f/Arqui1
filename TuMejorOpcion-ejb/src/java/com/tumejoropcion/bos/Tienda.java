@@ -7,6 +7,9 @@
 package com.tumejoropcion.bos;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 
 /**
  *
@@ -40,6 +43,9 @@ public class Tienda {
         this.nombre = nombre;
         this.identificador = identificador;
         bonos = new ArrayList<Bono>();
+        GregorianCalendar c=new GregorianCalendar(12,12,2014);
+        Date k= c.getTime();
+        //Bono x= new Bono(1, 50000, "Hola",k );
     }
     
     /**
@@ -82,58 +88,6 @@ public class Tienda {
         identificador = id;
     }
     
-    /**
-     * Indica si el bono es valido y se valido.
-     * @param codBon El cofigo del bono a validar.
-     * @return true si se pudo validar, false si no.
-     */
-    public boolean redimirBono(int codBon) {
-        boolean termino = false;
-        for(int i = 0; i < bonos.size() && !termino; i++) {
-            Bono x = bonos.get(i);
-            if(x.darCodigo() == codBon) {
-                termino = true;
-                if(x.estaVigente() == true) {
-                    x.redimido();
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-        }
-        return false;
-    }
     
-    /**
-     * Agrega un nuevo bono a la lista de bonos.
-     * @param bono El nuevo bono a agregar.
-     * @return true si se pudo agregar, falso si no.
-     */
-    public boolean agregarBono(Bono bono) {
-        for(int i = 0; i < bonos.size(); i++) {
-            Bono x = bonos.get(i);
-            if(x.darCodigo() == bono.darCodigo()) {
-                return false;
-            }
-            else {
-                bonos.add(x);
-                return true;
-               
-            }
-        }
-        return false;
-    }
-
-    
-    
-    public void agregarBonosConReferenciaYo(ArrayList<Bono> ArregloBonos) {
-        for(int i = 0; i < ArregloBonos.size(); i++) {
-            Bono x = ArregloBonos.get(i);
-            if(x.darReferencia().equals(nombre)) {
-                bonos.add(x);
-            }
-        }
-    }
     
 }

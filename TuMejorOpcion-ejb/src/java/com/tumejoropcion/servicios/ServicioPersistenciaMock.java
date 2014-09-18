@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 
 /**
  * Implementación de los servicios de persistencia
  */
-@Stateless
+@Singleton
 public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote, IServicioPersistenciaMockLocal {
 
     //-----------------------------------------------------------
@@ -45,16 +45,16 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
      */
     public ServicioPersistenciaMock()
     {
-        if (tiendas == null || tiendas.size() == 0)
+        if (tiendas == null )
         {
             bonos = new ArrayList<Bono>();
             
             GregorianCalendar c = new GregorianCalendar(2,12,2014);
             Date y = c.getTime();
             
-            bonos.add(new Bono(1, 12000, "Sara", y));
+            bonos.add(new Bono(1, 12000, "Zara", y));
             bonos.add(new Bono(2, 12000, "Lec Lee", y));
-            bonos.add(new Bono(3, 12000, "Sara", y));
+            bonos.add(new Bono(3, 12000, "Zara", y));
             bonos.add(new Bono(4, 12000, "Studio F", y));
             bonos.add(new Bono(5, 12000, "Fuera de Serie", y));
             bonos.add(new Bono(6, 12000, "Arturo Calle", y));
@@ -62,7 +62,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             
             tiendas = new ArrayList<Tienda>();
 
-            tiendas.add(new Tienda("Sara", 1));
+            tiendas.add(new Tienda("Zara", 1));
             tiendas.add(new Tienda("Arturo Calle",2));
             tiendas.add(new Tienda("Fuera de Serie",3));
             tiendas.add(new Tienda("Bkul", 4));
@@ -78,7 +78,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             
             for(int i = 0; i < tiendas.size(); i++) {
                 Tienda t = tiendas.get(i);
-                t.agregarBonosConReferenciaYo(bonos);
+               // t.agregarBonosConReferenciaYo(bonos);
             }
             
         }
@@ -105,7 +105,6 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
         {
 
             Bono b = (Bono) obj;
-            b.cambiarCodigo(bonos.size() + 1);
             bonos.add(b);
         } 
         else if (obj instanceof Usuario)

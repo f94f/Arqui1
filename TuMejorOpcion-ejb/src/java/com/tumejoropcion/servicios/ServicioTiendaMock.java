@@ -10,7 +10,7 @@ import javax.ejb.Stateful;
 /**
  * Implementación de los servicios de administración de una tienda en el sistema
  */
-@Stateful
+
 public class ServicioTiendaMock implements IServicioTiendaMockRemote, IServicioTiendaMockLocal {
 
     //-----------------------------------------------------------
@@ -20,7 +20,7 @@ public class ServicioTiendaMock implements IServicioTiendaMockRemote, IServicioT
     /**
      * Interface con referencia al servicio de persistencia en el sistema
      */
-    @EJB
+  
     private IServicioPersistenciaMockLocal persistencia;
 
     //-----------------------------------------------------------
@@ -31,7 +31,7 @@ public class ServicioTiendaMock implements IServicioTiendaMockRemote, IServicioT
      * Constructor de la clase sin argumentos
      */
     public ServicioTiendaMock()
-    {
+    {persistencia=new ServicioPersistenciaMock();
     }
 
     //-----------------------------------------------------------

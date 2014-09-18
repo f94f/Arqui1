@@ -2,68 +2,58 @@ package servlets;
 
 import beans.Login;
 import beans.TiendaBean;
+import com.tumejoropcion.bos.Bono;
 import com.tumejoropcion.bos.Tienda;
+import com.tumejoropcion.exception.OperacionInvalidaException;
+import com.tumejoropcion.servicios.IServicioBonosMockLocal;
+import com.tumejoropcion.servicios.ServicioBonosMock;
+import facebook4j.Facebook;
+import facebook4j.FacebookException;
 import java.io.IOException;
-
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import facebook4j.Facebook;
-import facebook4j.FacebookException;
 public class funcionalidadBonos extends HttpServlet {
     private static final long serialVersionUID = -7453606094644144082L;
-    Login beanLogin = new Login();
-    TiendaBean  beanTienda=new TiendaBean();
+    
+    private IServicioBonosMockLocal persist;
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       System.out.println("entró al servlet");
+     request.setCharacterEncoding("UTF-8");
+        persist = new ServicioBonosMock();
+        
+        int cod= 120;
+        
+        String message = request.getParameter("messagecomprar");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
-        String valueTienda = request.getParameter("Select");
-        String confucion = request.getParameter("message");
-        System.out.println(valueTienda);
-        System.out.println(confucion);
+        GregorianCalendar c= new GregorianCalendar(2014,12,12);
+            Date y =c.getTime();
+            int valor = Integer.parseInt(message);
+            
+            Bono nuevo = new Bono(cod, valor, "Zara",y );
         try {
-            int valor =Integer.parseInt(confucion);
-            int tiendaId =Integer.parseInt(valueTienda);
-            System.out.println("Valor: " + valor);
-            String nombreTienda="";
-            if(tiendaId== 1)
-            {
-                 nombreTienda="Zara";
-            } else if(tiendaId== 2){
-                 nombreTienda="Arturo Calle";
-            }else if(tiendaId== 3){
-                 nombreTienda="Fuera De Serie";
-            }
-            else if(tiendaId== 4){
-                 nombreTienda="Bkul";
-            }
-            else if(tiendaId== 5){
-                 nombreTienda="Lec Lee";
-            }
-            else if(tiendaId== 6){
-                 nombreTienda="Studio F";
-            }
-            else if(tiendaId== 7){
-                 nombreTienda="Pronto";
-            }else if(tiendaId== 8){
-               nombreTienda="Armi";
-            }else{
-                nombreTienda="null";
-            }
             
-            Tienda actual= new Tienda(nombreTienda, tiendaId);
+            persist.agregarBono(nuevo);
             
-            beanTienda.agregarBonoATienda(valor,actual);
-            facebook.postStatusMessage(confucion);
-           
+            System.out.println("agregó");
+            //System.out.println(persist.getBono().get(7).darCodigo()+"");
+           // System.out.println(persist.getBono().size());
+             facebook.postStatusMessage("compre un bono de un valor"+ message);
         } catch (FacebookException e) {
-            System.out.println("perdidas");
-            throw new ServletException(e);
-            
+         throw new ServletException(e);
+        } catch (OperacionInvalidaException ex) {
+            Logger.getLogger(funcionalidadBonos.class.getName()).log(Level.SEVERE, null, ex);
         }
-         response.sendRedirect(request.getContextPath()+ "/El bono fue creado exitosamente");
-      }
+        response.sendRedirect(request.getContextPath()+ "/");
+        
+        
+    }
 }

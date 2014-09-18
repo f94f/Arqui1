@@ -33,4 +33,13 @@ public interface IServicioBonosMockLocal
      * @return vendedores venta del sistema
      */
     public List<Bono> getBono();
+
+    /**
+     * Redimir bono con codigo dado
+     * @param cod
+     * @return treu si se pudo redimir
+     */
+    public boolean redimirBono(int cod);
+
 }
+

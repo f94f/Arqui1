@@ -21,7 +21,7 @@ public class ServicioBonosMock implements IServicioBonosMockRemote, IServicioBon
     /**
      * Interface con referencia al servicio de persistencia en el sistema
      */
-    @EJB
+    
     private IServicioPersistenciaMockLocal persistencia;
 
     //-----------------------------------------------------------
@@ -32,7 +32,7 @@ public class ServicioBonosMock implements IServicioBonosMockRemote, IServicioBon
      * Constructor de la clase sin argumentos
      */
     public ServicioBonosMock()
-    {
+    {persistencia=new ServicioPersistenciaMock();
     }
 
     //-----------------------------------------------------------
@@ -79,5 +79,17 @@ public class ServicioBonosMock implements IServicioBonosMockRemote, IServicioBon
     {
         return persistencia.findAll(Bono.class);
     }
+    
+    @Override
+    public boolean redimirBono(int cod)
+    {
+        Bono este=(Bono) persistencia.findById(Bono.class, cod);
+        if(este.estaVigente()){
+            este.redimido();
+            return true;
+        }
+        return  false;
+    }
 
+    
 }
