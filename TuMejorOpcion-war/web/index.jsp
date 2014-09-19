@@ -414,9 +414,18 @@
      
             
            <input type="text"  name="messagecomprar"></input>
-            <input type="submit" name="comprarBonos" value="comprarBonos" />
+           <input type="submit" name="comprarBonos" value="Comprar Bonos" />
+          </form>
+
+        <form action="./enviarBono" method="get">
+            <input type="text"  name="messageEnviar"></input>
+            Ingresar correo del amigo al que deseas enviar el bono:
+            <input type="text"  name="email"></input>
+            <input type="submit" name="enviarBono" value="Enviar Bono" />
             
-        </form>
+        </form>   
+             
+            
         <form action="./redimirBono" method="get">
             Selecciones la tienda a al que pertenece el bono e ingrese el codigo.
              <select name="Select" value="seleccionarTienda" multiple="multiple">

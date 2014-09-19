@@ -33,6 +33,10 @@
         <servlet-class>servlets.verAmigos</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>enviarBono</servlet-name>
+        <servlet-class>servlets.enviarBono</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>verHistorial</servlet-name>
         <servlet-class>servlets.verHistorial</servlet-class>
     </servlet>
@@ -67,6 +71,11 @@
         <servlet-name>verAmigos</servlet-name>
         <url-pattern>/verAmigos</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>enviarBono</servlet-name>
+        <url-pattern>/enviarBono</url-pattern>
+    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>verHistorial</servlet-name>
         <url-pattern>/verHistorial</url-pattern>
