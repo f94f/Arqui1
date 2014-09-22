@@ -31,7 +31,9 @@ public class redimirBono extends HttpServlet {
              boolean resp = lb.redimido();
              if(!resp) {
                resp = true;
-            }
+            }else {
+                 resp=false;
+             }
                       
             facebook.postStatusMessage("se pudo redimir el bono?: "+resp+" con codigo: "+codigo);
            
