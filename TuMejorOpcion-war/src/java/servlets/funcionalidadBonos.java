@@ -37,7 +37,32 @@ public class funcionalidadBonos extends HttpServlet {
      request.setCharacterEncoding("UTF-8");
      
         
-     
+        String tienda = request.getParameter("Select");
+        if(tienda.equals("1")) {
+            tienda = "Zara";
+        }
+        else if(tienda.equals("2")) {
+            tienda = "Arturo Calle";
+        }
+        else if(tienda.equals("3")) {
+            tienda = "Fuera De Serie";
+        }
+        else if(tienda.equals("4")) {
+            tienda = "Bkul";
+        }
+        else if(tienda.equals("5")) {
+            tienda = "Lec Lee";
+        }
+        else if(tienda.equals("6")) {
+            tienda = "Studio F";
+        }
+        else if(tienda.equals("7")) {
+            tienda = "Pronto";
+        }
+        else if(tienda.equals("8")) {
+            tienda = "Armi";
+        }
+                
         
         String message = request.getParameter("messagecomprar");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
@@ -45,16 +70,17 @@ public class funcionalidadBonos extends HttpServlet {
             Date y =c.getTime();
             int valor = Integer.parseInt(message);
             
-            Bono nuevo = new Bono( valor, "Zara", y);
+            Bono nuevo = new Bono( valor, tienda, y);
         try {
             
            ServicioPersistenciaMock.darInstancia().create(nuevo);
             
+           System.out.println(tienda);
             System.out.println("agregó");
            
           //  System.out.println(ServicioPersistenciaMock.getBono().get(7).darCodigo()+"");
             System.out.println(ServicioPersistenciaMock.darInstancia().findAll(Bono.class).size());
-             facebook.postStatusMessage("compre un bono de un valor"+ message);
+             facebook.postStatusMessage("compre un bono de un valor "+ message + " de " + tienda);
         } catch (FacebookException e) {
          throw new ServletException(e);
         } catch (OperacionInvalidaException ex) {
