@@ -25,57 +25,44 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class funcionalidadBonos extends HttpServlet {
+public class agregarTienda extends HttpServlet {
 
     private static final long serialVersionUID = -7453606094644144082L;
-    private Usuario user;
-
-   //private ServicioBonosMock persist;
-    //private ServicioLoginMock servicio;
+    private Tienda tien;
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-
-        String tienda = request.getParameter("Select");
+        String message = request.getParameter("message2");
+        Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
+        
+        String tienda = request.getParameter("Select1");
         if (tienda.equals("1")) {
-            tienda = "Zara";
+            tien = new Tienda(message, 1);
         } else if (tienda.equals("2")) {
-            tienda = "Arturo Calle";
+            tien = new Tienda(message, 2);
         } else if (tienda.equals("3")) {
-            tienda = "Fuera De Serie";
+            tien = new Tienda(message, 3);
         } else if (tienda.equals("4")) {
-            tienda = "Bkul";
+            tien = new Tienda(message, 4);
         } else if (tienda.equals("5")) {
-            tienda = "Lec Lee";
+            tien = new Tienda(message, 5);
         } else if (tienda.equals("6")) {
-            tienda = "Studio F";
+            tien = new Tienda(message, 6);
         } else if (tienda.equals("7")) {
-            tienda = "Pronto";
+            tien = new Tienda(message, 7);
         } else if (tienda.equals("8")) {
-            tienda = "Armi";
+            tien = new Tienda(message, 8);
         }
         
-        String message = request.getParameter("messagecomprar");
-        Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
-        GregorianCalendar c = new GregorianCalendar(2014, 12, 12);
-        Date y = c.getTime();
-        int valor = Integer.parseInt(message);
-
-        Bono nuevo = new Bono(valor, tienda, y);
+        
         try {
-
-            ServicioPersistenciaMock.darInstancia().create(nuevo);
-
-            System.out.println(tienda);
-            System.out.println("agregó");
-            
-            //  System.out.println(ServicioPersistenciaMock.getBono().get(7).darCodigo()+"");
-            System.out.println(ServicioPersistenciaMock.darInstancia().findAll(Bono.class).size());
-            facebook.postStatusMessage("compre un bono de un valor " + message + " de " + tienda);
+            tien.cambiarNombre(message);
+            facebook.postStatusMessage("la tienda con nombre " + tienda +" fue cambiada por el nombre: "+message);
+            System.out.println(tien.darNombre());
+            System.out.println(tien.darIdentificador());
         } catch (FacebookException e) {
             throw new ServletException(e);
-        } catch (OperacionInvalidaException ex) {
-            Logger.getLogger(funcionalidadBonos.class.getName()).log(Level.SEVERE, null, ex);
         }
         response.sendRedirect(request.getContextPath() + "/");
 

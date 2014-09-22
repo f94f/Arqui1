@@ -36,6 +36,10 @@
         <servlet-name>enviarBono</servlet-name>
         <servlet-class>servlets.enviarBono</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>agregarTienda</servlet-name>
+        <servlet-class>servlets.agregarTienda</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>verHistorial</servlet-name>
         <servlet-class>servlets.verHistorial</servlet-class>
@@ -75,7 +79,10 @@
         <servlet-name>enviarBono</servlet-name>
         <url-pattern>/enviarBono</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>agregarTienda</servlet-name>
+        <url-pattern>/agregarTienda</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>verHistorial</servlet-name>
         <url-pattern>/verHistorial</url-pattern>
