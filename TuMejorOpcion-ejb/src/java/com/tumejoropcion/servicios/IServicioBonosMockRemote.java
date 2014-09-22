@@ -4,6 +4,7 @@ package com.tumejoropcion.servicios;
 import com.tumejoropcion.bos.Bono;
 import com.tumejoropcion.exception.OperacionInvalidaException;
 import java.util.List;
+import java.util.UUID;
 import javax.ejb.Remote;
 
 /**
@@ -25,7 +26,7 @@ public interface IServicioBonosMockRemote
      * @param codigo Número de identificación único del bono
      * @throws com.tumejoropcion.exception.OperacionInvalidaException
      */
-    public void eliminarBono(int codigo)throws OperacionInvalidaException;
+    public void eliminarBono(String codigo)throws OperacionInvalidaException;
 
     /**
      * Devuelve todas los bonos del sistema

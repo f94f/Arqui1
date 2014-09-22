@@ -4,11 +4,15 @@ import beans.Login;
 import beans.TiendaBean;
 import com.tumejoropcion.bos.Bono;
 import com.tumejoropcion.bos.Tienda;
+import com.tumejoropcion.bos.Usuario;
 import com.tumejoropcion.exception.OperacionInvalidaException;
 import com.tumejoropcion.servicios.IServicioBonosMockLocal;
 import com.tumejoropcion.servicios.ServicioBonosMock;
+import com.tumejoropcion.servicios.ServicioLoginMock;
+import com.tumejoropcion.servicios.ServicioPersistenciaMock;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
+import facebook4j.User;
 import java.io.IOException;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -20,17 +24,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 public class funcionalidadBonos extends HttpServlet {
     private static final long serialVersionUID = -7453606094644144082L;
     
-    private IServicioBonosMockLocal persist;
+   //private ServicioBonosMock persist;
+    //private ServicioLoginMock servicio;
+   
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
      request.setCharacterEncoding("UTF-8");
-        persist = new ServicioBonosMock();
+     
         
-        int cod= 120;
+     
         
         String message = request.getParameter("messagecomprar");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
@@ -38,14 +45,15 @@ public class funcionalidadBonos extends HttpServlet {
             Date y =c.getTime();
             int valor = Integer.parseInt(message);
             
-            Bono nuevo = new Bono(cod, valor, "Zara",y );
+            Bono nuevo = new Bono( valor, "Zara", y);
         try {
             
-            persist.agregarBono(nuevo);
+           ServicioPersistenciaMock.darInstancia().create(nuevo);
             
             System.out.println("agregó");
-            //System.out.println(persist.getBono().get(7).darCodigo()+"");
-           // System.out.println(persist.getBono().size());
+           
+          //  System.out.println(ServicioPersistenciaMock.getBono().get(7).darCodigo()+"");
+            System.out.println(ServicioPersistenciaMock.darInstancia().findAll(Bono.class).size());
              facebook.postStatusMessage("compre un bono de un valor"+ message);
         } catch (FacebookException e) {
          throw new ServletException(e);

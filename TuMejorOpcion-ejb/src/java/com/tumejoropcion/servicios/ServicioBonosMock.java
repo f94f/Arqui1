@@ -4,14 +4,15 @@ package com.tumejoropcion.servicios;
 import com.tumejoropcion.bos.Bono;
 import com.tumejoropcion.exception.OperacionInvalidaException;
 import java.util.List;
+import java.util.UUID;
 import javax.ejb.EJB;
-import javax.ejb.Stateful;
+import javax.ejb.Singleton;
 
 /**
  * Implementación de los servicios de administración de un vendedor en el sistema
  * @author Juan Sebastián Urrego
  */
-@Stateful
+@Singleton
 public class ServicioBonosMock implements IServicioBonosMockRemote, IServicioBonosMockLocal {
 
     //-----------------------------------------------------------
@@ -32,8 +33,10 @@ public class ServicioBonosMock implements IServicioBonosMockRemote, IServicioBon
      * Constructor de la clase sin argumentos
      */
     public ServicioBonosMock()
-    {persistencia=new ServicioPersistenciaMock();
+    { persistencia = new ServicioPersistenciaMock();
     }
+    
+    
 
     //-----------------------------------------------------------
     // Métodos
@@ -62,7 +65,7 @@ public class ServicioBonosMock implements IServicioBonosMockRemote, IServicioBon
      * @throws OperacionInvalidaException 
      */
     @Override
-    public void eliminarBono(int codigo)throws OperacionInvalidaException
+    public void eliminarBono(String codigo)throws OperacionInvalidaException
     {
         Bono b = (Bono) persistencia.findById(Bono.class, codigo);     
         try
@@ -81,15 +84,17 @@ public class ServicioBonosMock implements IServicioBonosMockRemote, IServicioBon
     }
     
     @Override
-    public boolean redimirBono(int cod)
+    public boolean redimirBono(String cod)
     {
         Bono este=(Bono) persistencia.findById(Bono.class, cod);
         if(este.estaVigente()){
-            este.redimido();
-            return true;
+            if(!este.redimido()) {
+                return true;
+            }
         }
         return  false;
     }
 
+    
     
 }

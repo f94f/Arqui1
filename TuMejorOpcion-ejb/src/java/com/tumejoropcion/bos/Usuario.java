@@ -9,6 +9,7 @@ package com.tumejoropcion.bos;
 import facebook4j.Friend;
 import facebook4j.Like;
 import facebook4j.ResponseList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,8 @@ import java.util.List;
 public class Usuario {
     
     private String email;
+    private String nombre;
+    private ArrayList bonos;
     private List likes;
     private List friends;
     
@@ -52,4 +55,21 @@ public class Usuario {
     public List getLikes(){
         return likes;
     }
+    
+    public String darNombre(){
+        return nombre;
+    }
+    
+    public void cambiarNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public ArrayList darBonos() {
+        return bonos;
+    }
+    
+    public void agregarBono(Bono bono) {
+        bonos.add(bono);
+    }
+            
 }

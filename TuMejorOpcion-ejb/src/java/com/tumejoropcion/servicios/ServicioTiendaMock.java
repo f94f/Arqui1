@@ -5,12 +5,12 @@ import com.tumejoropcion.bos.Tienda;
 import com.tumejoropcion.exception.OperacionInvalidaException;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.ejb.Stateful;
+import javax.ejb.Singleton;
 
 /**
  * Implementación de los servicios de administración de una tienda en el sistema
  */
-
+@Singleton
 public class ServicioTiendaMock implements IServicioTiendaMockRemote, IServicioTiendaMockLocal {
 
     //-----------------------------------------------------------
@@ -31,7 +31,7 @@ public class ServicioTiendaMock implements IServicioTiendaMockRemote, IServicioT
      * Constructor de la clase sin argumentos
      */
     public ServicioTiendaMock()
-    {persistencia=new ServicioPersistenciaMock();
+    {   persistencia =new ServicioPersistenciaMock();
     }
 
     //-----------------------------------------------------------

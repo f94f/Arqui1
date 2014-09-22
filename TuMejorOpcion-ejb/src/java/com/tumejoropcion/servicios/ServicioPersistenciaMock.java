@@ -20,7 +20,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
     //-----------------------------------------------------------
     // Atributos
     //-----------------------------------------------------------
-
+    private static ServicioPersistenciaMock yo = null;
     /**
      * Lista con los vendedores del sistema
      */
@@ -36,7 +36,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
      */
     private ArrayList<Usuario> usuarios;
 
-    //-----------------------------------------------------------
+      //-----------------------------------------------------------
     // Constructor
     //-----------------------------------------------------------
 
@@ -52,13 +52,13 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             GregorianCalendar c = new GregorianCalendar(2,12,2014);
             Date y = c.getTime();
             
-            bonos.add(new Bono(1, 12000, "Zara", y));
-            bonos.add(new Bono(2, 12000, "Lec Lee", y));
-            bonos.add(new Bono(3, 12000, "Zara", y));
-            bonos.add(new Bono(4, 12000, "Studio F", y));
-            bonos.add(new Bono(5, 12000, "Fuera de Serie", y));
-            bonos.add(new Bono(6, 12000, "Arturo Calle", y));
-            bonos.add(new Bono(7, 12000, "Arturo Calle", y));
+            bonos.add(new Bono( 12000, "Zara", y));
+            bonos.add(new Bono( 12000, "Lec Lee", y));
+            bonos.add(new Bono( 12000, "Zara", y));
+            bonos.add(new Bono( 12000, "Studio F", y));
+            bonos.add(new Bono( 12000, "Fuera de Serie", y));
+            bonos.add(new Bono( 12000, "Arturo Calle", y));
+            bonos.add(new Bono( 12000, "Arturo Calle", y));
             
             tiendas = new ArrayList<Tienda>();
 
@@ -84,6 +84,16 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
         }
     }
 
+    /**
+     *
+     * @return
+     */
+    public static ServicioPersistenciaMock darInstancia(){
+        if(yo==null){
+            yo = new ServicioPersistenciaMock();
+        }
+        return yo;
+    }
     //-----------------------------------------------------------
     // Métodos
     //-----------------------------------------------------------
@@ -286,6 +296,11 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             }
         }
         return null;
+    }
+
+    @Override
+    public ServicioPersistenciaMock darInstancia2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
   
 }

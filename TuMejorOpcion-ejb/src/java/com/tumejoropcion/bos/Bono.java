@@ -8,6 +8,7 @@
 package com.tumejoropcion.bos;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Bono {
      /**
       * El codigo del bono.
       */
-    private int codigo;
+    private String codigo;
     
     /**
      * Indica el valor por el cual esta el bono.
@@ -40,6 +41,7 @@ public class Bono {
     private boolean activo;
     
     private String tienda;
+    
     /**
      * Constructor vacio
      */
@@ -52,10 +54,13 @@ public class Bono {
      * @param codigo El codigo del bono.
      * @param valor El valor del bono.
      * @param referencia La tienda a la cual pertenece el bono.
+     * @param nUsuario
      * @param fv La fecha límite de cange.
      */
-    public Bono(int codigo, int valor, String referencia, Date fv) {
-        this.codigo = codigo;
+    public Bono(int valor, String referencia, Date fv) {
+        
+        codigo=UUID.randomUUID().toString();
+        System.out.println("codigo:"+codigo);
         this.valor = valor;
         this.referencia = referencia;
         fechaVencimiento = fv;
@@ -67,7 +72,7 @@ public class Bono {
      * Muestra el codigo del bono.
      * @return El codigo del bono.
      */
-    public int darCodigo() {
+    public String darCodigo() {
         return codigo;
     }
     
@@ -86,11 +91,10 @@ public class Bono {
     public String darReferencia() {
         return referencia;
     }
-    public String darTienda()
-    {
+    
+    public String darTienda() {
         return tienda;
     }
-    
     
     /**
      * Muestra la fehca límite del bono para cangear.
@@ -108,13 +112,7 @@ public class Bono {
         return activo;
     }
     
-    /**
-     * Asigna un nuevo codigo al bono, por un numero que entra por parámetro.
-     * @param codigo El nuevo codigo a agregar.
-     */
-    public void cambiarCodigo(int codigo) {
-        this.codigo = codigo;        
-    }
+   
     
     /**
      * Asigna un nuevo valor al bono por uno que es dado por parámetro
@@ -150,8 +148,9 @@ public class Bono {
     /**
      * Cambia el estado del bono a redimido.
      */
-    public void redimido() {
+    public boolean redimido() {
         activo = false;
+        return activo;
     }
     
 }

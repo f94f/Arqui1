@@ -15,9 +15,9 @@ package beans;
 import com.tumejoropcion.bos.Bono;
 import com.tumejoropcion.bos.Tienda;
 import com.tumejoropcion.exception.OperacionInvalidaException;
+import com.tumejoropcion.servicios.IServicioBonosMockLocal;
 import com.tumejoropcion.servicios.IServicioPersistenciaMockLocal;
 import com.tumejoropcion.servicios.IServicioTiendaMockLocal;
-import com.tumejoropcion.servicios.IServicioBonosMockLocal;
 import com.tumejoropcion.servicios.ServicioBonosMock;
 import com.tumejoropcion.servicios.ServicioPersistenciaMock;
 import com.tumejoropcion.servicios.ServicioTiendaMock;
@@ -29,6 +29,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
@@ -137,7 +138,7 @@ public class TiendaBean implements Serializable
        * @param codBono
        * @return true si está activo, false si ya se venció el bono
        */
-        public boolean verficarSiBonoEstaActivo(int codBono){
+        public boolean verficarSiBonoEstaActivo(String codBono){
          Date hoy=new Date();
          for(int i =0; i< tienda.darBonos().size();i++){
          Bono actual= tienda.darBonos().get(i);
@@ -155,7 +156,7 @@ public class TiendaBean implements Serializable
          * Eliminar un bono desde una tienda
          * @param codigo 
          */
-        public void eliminarBono(int codigo){
+        public void eliminarBono(String codigo){
            for(int i =0; i< tienda.darBonos().size();i++){
                Bono actual= tienda.darBonos().get(i);
                 if(actual.darCodigo()==(codigo)){
@@ -169,7 +170,7 @@ public class TiendaBean implements Serializable
          * @param valor 
          */
         public void agregarBono(int valor) throws OperacionInvalidaException{
-            Bono b = new Bono(1222, valor, "zara",new Date(System.currentTimeMillis()));
+            Bono b = new Bono( valor, "zara",new Date(System.currentTimeMillis()));
             contactoBono.agregarBono(b);
                        
         }
