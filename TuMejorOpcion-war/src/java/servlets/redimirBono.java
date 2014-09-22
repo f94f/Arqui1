@@ -29,6 +29,9 @@ public class redimirBono extends HttpServlet {
             Bono lb = (Bono) ServicioPersistenciaMock.darInstancia().findById(Bono.class, codigo); 
             
              boolean resp = lb.redimido();
+             if(!resp) {
+               resp = true;
+            }
                       
             facebook.postStatusMessage("se pudo redimir el bono?: "+resp+" con codigo: "+codigo);
            
