@@ -23,8 +23,8 @@ public class verHistorial extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        persist = new ServicioBonosMock();
-        System.out.println("entró al servlet");
+        long ahora= System.currentTimeMillis();
+        //System.out.println("entró al servlet");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
         String id= "defaultUser";
         try{
@@ -35,7 +35,7 @@ public class verHistorial extends HttpServlet {
         }
         List<Bono> resp = ServicioPersistenciaMock.darInstancia().darBonosDeUsuario(id);
         try {
-            String impr = "";
+            String impr = ahora+"";
             for (int i = 0; i < resp.size(); i++) {
                 Bono b = resp.get(i);
                 impr += "Un Bono de la tienda " + b.darReferencia() + " , cuyo código es: " + b.darCodigo() + "\n";
@@ -45,7 +45,7 @@ public class verHistorial extends HttpServlet {
             }else{
               facebook.postStatusMessage(" el usuario no ha comprado bonos aun");  
             }
-            System.out.println("siguio");
+          //  System.out.println("siguio");
         } catch (FacebookException e) {
             System.out.println("perdidas");
             throw new ServletException(e);
@@ -53,10 +53,13 @@ public class verHistorial extends HttpServlet {
         }
         response.sendRedirect(request.getContextPath() + "/");
         PrintWriter out = response.getWriter();
-        out.println("Lista de bonos:");
+        //out.println("Lista de bonos:");
         for (int i = 0; i < resp.size(); i++) {
             Bono actual = resp.get(i);
-            out.println(actual.darCodigo() + " | " + actual.darTienda());
+            //out.println(actual.darCodigo() + " | " + actual.darTienda());
         }
+        long luego= System.currentTimeMillis();
+        long difference = luego-ahora;
+        //System.out.println("en consultar el historial de amigos se demora"+ difference);
     }
 }

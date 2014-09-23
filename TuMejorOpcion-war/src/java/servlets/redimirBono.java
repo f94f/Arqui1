@@ -16,12 +16,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class redimirBono extends HttpServlet {
+    
 
     private static final long serialVersionUID = -7453606094644144082L;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+long ahora= System.currentTimeMillis();
         System.out.println("entró al servlet");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
         String codigo = request.getParameter("message1");
@@ -44,5 +45,15 @@ public class redimirBono extends HttpServlet {
 
         }
         response.sendRedirect(request.getContextPath() + "/");
+        long luego= System.currentTimeMillis();
+        long difference = luego-ahora;
+       // System.out.println("en redimir un bono se demora"+ difference);
+      List bonos =  ServicioPersistenciaMock.darInstancia().findAll(Bono.class);
+       for (int i = 0; i < bonos.size(); i++){
+                Bono object =(Bono) bonos.get(i);
+               // System.out.println(i+"   "+object.darIdComprador());
+            }
+        
     }
+     
 }

@@ -32,6 +32,7 @@ public class agregarTienda extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        long ahora= System.currentTimeMillis();
         request.setCharacterEncoding("UTF-8");
         String message = request.getParameter("message2");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
@@ -65,6 +66,8 @@ public class agregarTienda extends HttpServlet {
             throw new ServletException(e);
         }
         response.sendRedirect(request.getContextPath() + "/");
-
+        long luego= System.currentTimeMillis();
+        long difference = luego-ahora;
+        //System.out.println("en modificar uan tienda se demora"+ difference);
     }
 }

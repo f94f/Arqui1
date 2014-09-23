@@ -34,6 +34,7 @@ public class funcionalidadBonos extends HttpServlet {
     //private ServicioLoginMock servicio;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       // long ahora= System.currentTimeMillis();
         request.setCharacterEncoding("UTF-8");
 
         String tienda = request.getParameter("Select");
@@ -79,6 +80,8 @@ public class funcionalidadBonos extends HttpServlet {
             Logger.getLogger(funcionalidadBonos.class.getName()).log(Level.SEVERE, null, ex);
         }
         response.sendRedirect(request.getContextPath() + "/");
-
+       // long luego= System.currentTimeMillis();
+       // long difference = luego-ahora;
+       // System.out.println("en comprar un bono se demora "+ difference);
     }
 }
