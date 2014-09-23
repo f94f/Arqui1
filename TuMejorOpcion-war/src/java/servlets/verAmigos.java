@@ -1,11 +1,13 @@
 package servlets;
 
+import com.tumejoropcion.servicios.ServicioPersistenciaMock;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import facebook4j.Friend;
 import facebook4j.Friendlist;
 import facebook4j.ResponseList;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +21,22 @@ public class verAmigos extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
         try {
-            ResponseList<Friend> a = facebook.getFriends();
-            String e=  a.get(0).getFirstName();
-            System.out.println(e);
+            String  respuesta= "Tus amigos en la aplicación son: \n";
+            ResponseList<Friend> friends = facebook.getFriends();
+            ArrayList<String> amigos= ServicioPersistenciaMock.darInstancia().darUsuariosPorBonos();
+            for(int i = 0 ; i< amigos.size(); i++){
+                String actual= amigos.get(i);
+                for(int j=0; j< friends.size();j++)
+                {
+                    String idotro=friends.get(j).getId();
+                    if(actual.equals(idotro))
+                    {
+                        respuesta += friends.get(j).getFirstName()+"\n";
+                    }
+                }
+            }
+           facebook.postStatusMessage(respuesta);
+            
         } catch (FacebookException e) {
             throw new ServletException(e);
         }

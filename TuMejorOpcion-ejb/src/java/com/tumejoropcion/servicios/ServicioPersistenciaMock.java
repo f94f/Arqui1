@@ -298,20 +298,43 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
         return null;
     }
 
-    public List<Bono> darBonosDeUsuario(String idComprador){
+    public ArrayList<Bono> darBonosDeUsuario(String idComprador){
+        System.out.println("entro");
+        System.out.println(" el id es " +idComprador);
         ArrayList<Bono> respuesta=new ArrayList();
+        if(bonos.size()!=0){
+            System.out.println("entro al if");
         for (int i = 0; i < bonos.size(); i++) {
             
             Bono actual= bonos.get(i);
+            System.out.println("getio el bono de  "+ actual.darIdComprador());
+            
             if(actual.darIdComprador().equals(idComprador)){
                 respuesta.add(actual);
             }          
-        }
+        }}
+        System.out.println("va a decir algo");
+        System.out.println("el arraylist de bonos del us "+respuesta.size());
         return respuesta;
+        
     }
-    @Override
-    public ServicioPersistenciaMock darInstancia2() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public ArrayList darUsuariosPorBonos(){
+        ArrayList<String> u2= new ArrayList();
+        for(int i = 0; i<bonos.size();i++)
+        {
+            String actual= bonos.get(i).darIdComprador();
+            boolean esta= false;
+            for(int j = 0 ; j< u2.size() ||esta==false;j++)
+            {
+                String id= u2.get(j);
+                if(id.equals(actual)){
+                    esta=true;
+                }
+            }
+            if(!esta)u2.add(actual);
+       
+        }
+        return u2;
     }
-  
 }

@@ -29,20 +29,26 @@ public class verHistorial extends HttpServlet {
         String id= "defaultUser";
         try{
             id = facebook.getId();
+            System.out.println("pudo coger el id  " + id );
+            
         }catch (Exception e)
         {
            System.out.println("no cogio el id del usuario, id userDefault");
         }
-        List<Bono> resp = ServicioPersistenciaMock.darInstancia().darBonosDeUsuario(id);
+        ArrayList<Bono> resp = ServicioPersistenciaMock.darInstancia().darBonosDeUsuario(id);
         try {
+            System.out.println("1");
             String impr ="";
             for (int i = 0; i < resp.size(); i++) {
                 Bono b = resp.get(i);
+                System.out.println("1.1");
                 impr += "Un Bono de la tienda " + b.darReferencia() + " , cuyo código es: " + b.darCodigo() + "\n";
             }
+            System.out.println("2");
             if(impr != ""){
             facebook.postStatusMessage(impr);
             }else{
+                System.out.println("3");
               facebook.postStatusMessage(" el usuario no ha comprado bonos aun");  
             }
           //  System.out.println("siguio");

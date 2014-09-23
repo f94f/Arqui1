@@ -406,6 +406,7 @@
 
 										Ingresar valor (debe ser mayor a COP $10.000):
 										<input type="text"  name="messagecomprar"></input>
+                                                                                <input type="text"  name="usuario" value="${facebook.id}"></input>
 										<br><Br>
 										<input type="submit" class="button turquoise large opacityRun" name="comprarBonos" value="Comprar Bonos" />
 									</form>
@@ -475,35 +476,23 @@
                 <input type="text"  name="message2"></input>
                 <BR><BR>
                 <input type="submit" class="button turquoise large opacityRun" name="agregarTienda" value="gestion de Tiendas" />
-<<<<<<< HEAD
-                
+               
                 <br>
-            <form action="./verAmigos" method="post">
 
-                <input type="submit" class="button turquoise large opacityRun" name="verAmigos" value="Ver Amigos" />
-
-            </form>
-<br>
-            <form action="./verHistorial" method="post">
-
-                <input type="submit"  class="button turquoise large opacityRun" name="verAmigos" value="Ver bonos comprados" />
-
-            </form>
-=======
 
             </form>
                                                                 
                                                                  <br>
             <form action="./verAmigos" method="post">
 
-                <input type="submit" class="button turquoise large opacityRun" name="verAmigos" value="Ver Amigos" />
+                <input type="submit" class="button turquoise large opacityRun" name="ver" value="Ver Amigos" />
 
             </form>
 <br>
             <form action="./verHistorial" method="post">
 
                 <input type="submit"  class="button turquoise large opacityRun" name="verAmigos" value="Ver bonos comprados" />
->>>>>>> origin/master
+
 
             </form>
 
