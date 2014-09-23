@@ -414,6 +414,7 @@
      
             Ingresar valor:
            <input type="text"  name="messagecomprar"></input>
+           <input type="text" name="usuario" value="${facebook.id}"/>
            <input type="submit" name="comprarBonos" value="Comprar Bonos" />
           </form>
 
@@ -438,9 +439,9 @@
             <input type="submit" name="verAmigos" value="Ver Amigos" />
             
         </form>
-        <form action="./verAmigos" method="post">
+        <form action="./verHistorial" method="post">
             
-            <input type="submit" name="verAmigos" value="Ver Amigos" />
+            <input type="submit" name="verHistorial" value="Ver Historial Bonos" />
             
         </form>
         <form action="./agregarTienda" method="get">

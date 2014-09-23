@@ -42,6 +42,8 @@ public class Bono {
     
     private String tienda;
     
+    private String idComprador;
+    
     /**
      * Constructor vacio
      */
@@ -57,12 +59,13 @@ public class Bono {
      * @param nUsuario
      * @param fv La fecha límite de cange.
      */
-    public Bono(int valor, String referencia, Date fv) {
+    public Bono(int valor, String referencia, Date fv, String idComprador) {
         
         codigo=UUID.randomUUID().toString();
         System.out.println("codigo:"+codigo);
         this.valor = valor;
         this.referencia = referencia;
+        this.idComprador= idComprador;
         fechaVencimiento = fv;
      
         activo = true;
@@ -102,6 +105,10 @@ public class Bono {
      */
     public Date darFechaVencimiento() {
         return fechaVencimiento;
+    }
+    
+    public String darIdComprador() {
+        return idComprador;
     }
     
     /**

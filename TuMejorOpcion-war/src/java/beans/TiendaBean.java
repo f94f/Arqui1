@@ -170,7 +170,7 @@ public class TiendaBean implements Serializable
          * @param valor 
          */
         public void agregarBono(int valor) throws OperacionInvalidaException{
-            Bono b = new Bono( valor, "zara",new Date(System.currentTimeMillis()));
+            Bono b = new Bono( valor, "zara",new Date(System.currentTimeMillis()),"userDefault");
             contactoBono.agregarBono(b);
                        
         }

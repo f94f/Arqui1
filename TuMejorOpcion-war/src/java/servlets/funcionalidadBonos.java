@@ -56,12 +56,13 @@ public class funcionalidadBonos extends HttpServlet {
         }
         
         String message = request.getParameter("messagecomprar");
+        String usuario = request.getParameter("usuario");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
         GregorianCalendar c = new GregorianCalendar(2014, 12, 12);
         Date y = c.getTime();
         int valor = Integer.parseInt(message);
 
-        Bono nuevo = new Bono(valor, tienda, y);
+        Bono nuevo = new Bono(valor, tienda, y,usuario);
         try {
 
             ServicioPersistenciaMock.darInstancia().create(nuevo);
@@ -71,7 +72,7 @@ public class funcionalidadBonos extends HttpServlet {
             
             //  System.out.println(ServicioPersistenciaMock.getBono().get(7).darCodigo()+"");
             System.out.println(ServicioPersistenciaMock.darInstancia().findAll(Bono.class).size());
-            facebook.postStatusMessage("compre un bono de un valor " + message + " de " + tienda);
+            facebook.postStatusMessage("Compre un bono por un valor de " + message + " en la tienda " + tienda);
         } catch (FacebookException e) {
             throw new ServletException(e);
         } catch (OperacionInvalidaException ex) {

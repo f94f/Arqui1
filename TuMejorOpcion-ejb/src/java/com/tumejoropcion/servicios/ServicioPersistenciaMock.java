@@ -52,13 +52,13 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             GregorianCalendar c = new GregorianCalendar(2,12,2014);
             Date y = c.getTime();
             
-            bonos.add(new Bono( 12000, "Zara", y));
-            bonos.add(new Bono( 12000, "Lec Lee", y));
-            bonos.add(new Bono( 12000, "Zara", y));
-            bonos.add(new Bono( 12000, "Studio F", y));
-            bonos.add(new Bono( 12000, "Fuera de Serie", y));
-            bonos.add(new Bono( 12000, "Arturo Calle", y));
-            bonos.add(new Bono( 12000, "Arturo Calle", y));
+            bonos.add(new Bono( 12000, "Zara", y,"userDefault"));
+            bonos.add(new Bono( 12000, "Lec Lee", y,"userDefault"));
+            bonos.add(new Bono( 12000, "Zara", y,"userDefault"));
+            bonos.add(new Bono( 12000, "Studio F", y,"userDefault"));
+            bonos.add(new Bono( 12000, "Fuera de Serie", y,"userDefault"));
+            bonos.add(new Bono( 12000, "Arturo Calle", y,"userDefault"));
+            bonos.add(new Bono( 12000, "Arturo Calle", y,"userDefault"));
             
             tiendas = new ArrayList<Tienda>();
 
@@ -298,6 +298,17 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
         return null;
     }
 
+    public List<Bono> darBonosDeUsuario(String idComprador){
+        ArrayList<Bono> respuesta=new ArrayList();
+        for (int i = 0; i < bonos.size(); i++) {
+            
+            Bono actual= bonos.get(i);
+            if(actual.darIdComprador().equals(idComprador)){
+                respuesta.add(actual);
+            }          
+        }
+        return respuesta;
+    }
     @Override
     public ServicioPersistenciaMock darInstancia2() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

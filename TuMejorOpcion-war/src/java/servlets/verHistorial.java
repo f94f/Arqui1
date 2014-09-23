@@ -3,6 +3,7 @@ package servlets;
 import com.tumejoropcion.bos.Bono;
 import com.tumejoropcion.servicios.IServicioBonosMockLocal;
 import com.tumejoropcion.servicios.ServicioBonosMock;
+import com.tumejoropcion.servicios.ServicioPersistenciaMock;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import java.io.IOException;
@@ -25,17 +26,25 @@ public class verHistorial extends HttpServlet {
         persist = new ServicioBonosMock();
         System.out.println("entró al servlet");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
-
-        List<Bono> resp = new ArrayList<Bono>();
+        String id= "defaultUser";
+        try{
+            id = facebook.getId();
+        }catch (Exception e)
+        {
+           System.out.println("no cogio el id del usuario, id userDefault");
+        }
+        List<Bono> resp = ServicioPersistenciaMock.darInstancia().darBonosDeUsuario(id);
         try {
-            System.out.println("entró al try");
-            resp = persist.getBono();
             String impr = "";
             for (int i = 0; i < resp.size(); i++) {
                 Bono b = resp.get(i);
-                impr += "De la tienda " + b.darReferencia() + " el código del bono es: " + b.darCodigo() + "\n";
+                impr += "Un Bono de la tienda " + b.darReferencia() + " , cuyo código es: " + b.darCodigo() + "\n";
             }
+            if(impr != ""){
             facebook.postStatusMessage(impr);
+            }else{
+              facebook.postStatusMessage(" el usuario no ha comprado bonos aun");  
+            }
             System.out.println("siguio");
         } catch (FacebookException e) {
             System.out.println("perdidas");
