@@ -495,6 +495,8 @@
 											<a href="#" class="single-image">
 												<img alt="" src="http://viatoreschristi.com/wp-content/uploads/2013/02/clothes.jpg" />
 											</a>	
+                                                                                     <a href="./logout">logout</a>
+
 										</div><!--/ .entry-image-->
 
 										
