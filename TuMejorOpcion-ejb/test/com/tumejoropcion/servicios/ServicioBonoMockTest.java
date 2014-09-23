@@ -38,7 +38,7 @@ public class ServicioBonoMockTest
     {
             GregorianCalendar c = new GregorianCalendar(2,12,2014);
             Date y = c.getTime();
-            b = new Bono( 12000, "Lec Lee", y);
+            b = new Bono( 12000, "Lec Lee", y,"userDefault");
         try
         {
             Properties env = new Properties();
