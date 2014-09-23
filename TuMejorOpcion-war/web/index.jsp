@@ -1,10 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="tag" tagdir="/WEB-INF/tags" %>
 
-<html>
+<!DOCTYPE html>
+<!--[if lte IE 8]>               <html class="ie8 no-js" lang="en">    <![endif]-->
+<!--[if lte IE 10]>				 <html class="ie10 no-js" lang="en">   <![endif]-->
+<!--[if !IE]>-->				 <html class="not-ie no-js" lang="en"> <!--<![endif]-->
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-        <title>Tu mejor opcion</title>
 
         <!-- Google Web Fonts
   ================================================== -->
@@ -14,6 +15,7 @@
   ================================================== -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+        <title>Accio</title>	
 
         <meta name="description" content="">
         <meta name="author" content="">
@@ -40,7 +42,6 @@
         <link rel="stylesheet" href="js/layerslider/css/layerslider.css" />
         <link rel="stylesheet" href="js/flexslider/flexslider.css" />
         <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" />
-        <link rel="stylesheet" href="js/video-js/video-js.css" />
 
         <!-- HTML5 Shiv
         ================================================== -->
@@ -49,10 +50,7 @@
     </head>
     <tag:notloggedin>
 
-
-        <body data-spy="scroll" data-target="#navigation" class="home animated" style="position: relative; min-width: 100%; min-height: 100%; z-index: 1; box-sizing: border-box;">
-
-
+        <body data-spy="scroll" data-target="#navigation" class="home">
 
             <!-- - - - - - - - - - - - - - Loader - - - - - - - - - - - - - - - - -->	
 
@@ -63,6 +61,25 @@
             <!-- - - - - - - - - - - - - end Loader - - - - - - - - - - - - - - - -->	
 
 
+            <!-- - - - - - - - - - - - - - BG Video - - - - - - - - - - - - - - - - -->		
+
+
+            <a class="player" id="bgndVideo" data-property="{
+               videoURL: 'http://www.youtube.com/watch?v=qGsTlYLbwy4',
+               containment:'body',
+               autoPlay: true,
+               quality: 'small',
+               mute: true, 
+               startAt: 0,
+               opacity: 1,
+               ratio: '16/9', 
+               addRaster: false }">
+            </a>
+
+
+            <!-- - - - - - - - - - - - - end BG Video - - - - - - - - - - - - - - - -->	
+
+
             <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->	
 
 
@@ -70,20 +87,19 @@
 
                 <div class="header-in clearfix">
 
-                    <h1 id="logo"><a href="index.html">Tu Mejor Opcion</a></h1>
+                    <h1 id="logo"><a href="index.html">#TuMejorOpcion</a></h1>
 
                     <a id="responsive-nav-button" class="responsive-nav-button" href="#"></a>
 
-                    <nav id="navigation" class="navigation" style>
+                    <nav id="navigation" class="navigation">
 
                         <ul>
-                            <li><a class="current-menu-item" href="#home">Inicio</a></li>
-                            <li><a href="#about">Quiénes somos</a></li>
-                            <li><a href="#team">Equipo</a></li>
-
+                            <li class="current-menu-item"><a href="#home">Inicio</a></li>
+                            <li><a href="#about">Acerca de</a></li>
                         </ul>
 
                     </nav><!--/ #navigation-->
+
                 </div><!--/ .header-in-->
 
             </header><!--/ #header-->
@@ -99,229 +115,138 @@
 
                 <section id="home" class="page">
 
-                    <section class="section parallax padding-off">
+                    <section class="section padding-off">
 
                         <div id="layerslider-container">
 
                             <div id="layerslider">
 
-                                <div class="ls-layer" style="slidedirection: top; durationin: 1500; durationout: 1500; easingin: easeInOutQuint;">
-
+                                <div class="ls-layer" style="slidedirection: left; durationin: 1500; durationout: 1500; easingin: easeInOutQuint; timeshift: -500;">
 
                                     <img alt="" class="ls-bg" src="http://www.taguritraleigh.com/images/slides/slider3.jpg">
 
-                                    <h1 class="ls-s2 align-center" style="top: 43%; left:130px; slidedirection : top; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
-                                        Regala un bono
+                                    <h1 class="ls-s2 align-center" style="top: 43%; left: 130px; slidedirection : top; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
+                                        Regala bonos
                                     </h1>
 
-                                    <h1 class="ls-s2 align-center" style="top: 57%; left:200px; slidedirection : left; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
-
+                                    <h1 class="ls-s2 align-center" style="top: 57%; left: 150px; slidedirection : bottom; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
                                         a tus amigos
                                     </h1>
 
-                                    <h1 class="ls-s2 align-center" style="top: 71%; left:480px;  slidedirection : bottom; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
-                                        <a href="signin" class="button turquoise large opacityRun" >Ingresa a TMO</a>
+                                </div><!--/ .ls-layer-->
+
+                                <div class="ls-layer" style="slidedirection: right; durationin: 1500; durationout: 1500; easingin: easeInOutQuint; timeshift: -500;">
+
+                                    <img alt="" class="ls-bg" src="https://www.xm1.cc//images/2045x950b.jpg">
+
+                                    <h1 class="ls-s2 align-center" style="top: 43%; left: 80px; slidedirection : top; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
+                                        Redime tus bonos
                                     </h1>
 
+                                    <h1 class="ls-s2 align-center" style="top: 57%; left: 0px; slidedirection : bottom; slideoutdirection : fade; scaleout : 0.75; durationin : 2000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint;">
+                                        En tu tienda favorita
+                                    </h1>
 
                                 </div><!--/ .ls-layer-->
 
 
-
-                            </div>
+                            </div><!--/ #layerslider-->
 
                         </div><!--/ #layerslider-container-->	
 
-
+                        <ul class="keydown">
+                            <li class="up"></li>
+                            <li class="left"></li>
+                            <li class="down"></li>
+                            <li class="right"></li>
+                        </ul><!--/ .keydown-->	
 
                     </section><!--/ .section-->
 
                 </section><!--/ .page-->
-
 
                 <section id="about" class="page">
-                    <section  class="section parallax parallax-bg-1 bg-turquoise-color">
 
-                        <div class="full-bg-image"></div>
-
-                        <div class="container">
-
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <ul class="quotes opacity" data-timeout="6000">
-                                        <li class="align-center">
-                                            <blockquote class="quote-text">
-                                                <p>Somos una plataforma que te permite comprar y regalar bonos en tiendas de ropa a tus amigos</p>
-                                            </blockquote>
-                                            <div class="quote-image"><img alt="Jack Black" src="images/off.png"></div>
-                                        </li>
-
-                                    </ul><!--/ .quotes-->
-                                </div>
-                            </div><!--/ .row-->
-
-                        </div><!--/ .container-->
-
-                    </section><!--/ .section-->
-
-                    <section class="section parallax parallax-bg-3 bg-dark-color">
-
-                        <div class="full-bg-image"></div>
-                        <div class="parallax-overlay"></div>
-
-                        <div class="container">
-
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="tweet opacity" data-timeout="6000"></div>
-                                </div>
-                            </div><!--/ .row-->
-
-                        </div><!--/ .container-->
-
-                    </section><!--/ .section-->
-                </section><!--/ .page-->
-
-
-
-                <section id="team" class="page">
-
-                    <section class="section bg-gray-color">
+                    <section class="section">
 
                         <div class="container">
 
                             <div class="row">
 
                                 <div class="col-xs-12">
-                                    <hgroup class="section-title align-center opacity">
-                                        <h1>Conoce a nuestro equipo</h1>
-                                        <h2>Desarrolladores detrás de esta aplicación</h2>	
-                                    </hgroup>			
+                                    <hgroup class="slogan align-center opacity">
+                                        <h1>Regala lo <span>mejor</span> a tus amigos</h1>
+                                        <h2>En su tienda favorita, para recoger cuando quieran.</h2>
+                                        <br>
+                                        <br>
+                                        <a href="signin" class="button turquoise large opacityRun" >Ingresa a TMO</a>	
+                                    </hgroup>	
                                 </div>
 
                             </div><!--/ .row-->
 
+                            <div class="row">
+
+                                <div class="col-md-7 opacity">
+                                    <p>
+                                        <img src="http://1.bp.blogspot.com/-lTwUkg93wSU/U19Y5fY2qXI/AAAAAAAAFz8/8XRDkQbYlLc/s1600/stradivarius-ss-2014-2.jpg" alt="" />
+                                    </p>
+                                </div><!--/ .col-md-6-->
+
+                                <div class="col-md-5">
+
+                                    <p class="opacity">
+                                        Tu mejor opcion es una aplicacion pensada en ti, y en esos momentos en los que no sabes que dar a cambio de una valiosa amistad, tan solo ingresa a nuestra aplicacion web y compra los bonos en donde quieras y por el valor que prefieras.
+                                    </p>
+
+                                    <ul class="list circle-list opacity">
+
+                                        <li>Ingresa con facebook</li>
+                                        <li>Escoge la tienda</li>
+                                        <li>Selecciona al amigo a quien le quieres dar el bono</li>
+                                        <li>Define el valor de tu regalo</li>
+                                        <li>Envialo!</li>
+
+                                    </ul><!--/ .list-->
+
+                                </div><!--/ .col-md-5-->
+
+                            </div><!--/ .row-->
                         </div><!--/ .container-->	
 
-                        <section class="team-member">
+                    </section><!--/ .section-->
 
-                            <div class="container">
+                    <section class="section parallax parallax-bg-1 bg-turquoise-color">
 
-                                <div class="row">
+                        <div class="full-bg-image"></div>
 
-                                    <div class="col-xs-12">
+                        <div class="container">
 
-                                        <div class="team-contents clearfix">
+                            <div class="row">
 
-                                            <article class="scale">
+                                <div class="col-xs-12">
 
-                                                <div class="contents clearfix">
-
-                                                    <div class="team-info">
-
-                                                        <div class="team-image">
-                                                            <a><img src="http://placehold.it/250x270" alt="" /></a>
-                                                        </div>
-
-                                                        <hgroup class="team-group">
-                                                            <h2 class="team-title">Gabriela Camargo</h2>
-                                                            <h5 class="team-position">Programadora</h5>
-                                                        </hgroup>
-
-                                                    </div><!--/ .team-info-->				
-
-                                                </div><!--/ .contents-->
-
-                                            </article>
-
-                                            <article class="scale">
-
-                                                <div class="contents clearfix">
-
-                                                    <div class="team-info">
-
-                                                        <div class="team-image">
-                                                            <a><img src="http://placehold.it/250x270" alt="" /></a>
-                                                        </div>
-
-                                                        <hgroup class="team-group">
-                                                            <h2 class="team-title">Juan Carlos Ruiz</h2>
-                                                            <h5 class="team-position">Programador - Documentación</h5>
-                                                        </hgroup>
-
-                                                    </div><!--/ .team-info-->
+                                    <ul class="quotes opacity" data-timeout="6000">
 
 
-                                                </div><!--/ .contents-->
+                                    </ul><!--/ .quotes-->
 
-                                            </article>	
+                                </div>
 
-                                            <article class="scale">
+                            </div><!--/ .row-->
 
-                                                <div class="contents clearfix">
+                        </div><!--/ .container-->
 
-                                                    <div class="team-info">
-
-                                                        <div class="team-image">
-                                                            <a ><img src="http://placehold.it/250x270" alt="" /></a>
-                                                        </div>
-
-                                                        <hgroup class="team-group">
-                                                            <h2 class="team-title">Felipe Matè</h2>
-                                                            <h5 class="team-position">Web Designer</h5>
-                                                        </hgroup>
-
-                                                    </div><!--/ .team-info-->
-
-
-
-                                                </div><!--/ .contents-->
-
-                                            </article>				
-
-                                            <article class="scale">
-
-                                                <div class="contents clearfix">
-
-                                                    <div class="team-info">
-
-                                                        <div class="team-image">
-                                                            <a><img src="http://placehold.it/250x270" alt="" /></a>
-                                                        </div>
-
-                                                        <hgroup class="team-group">
-                                                            <h2 class="team-title">Camilo Alfonso</h2>
-                                                            <h5 class="team-position">Programador - Diseñador web</h5>
-                                                        </hgroup>
-
-                                                    </div><!--/ .team-info-->
-
-
-                                                </div><!--/ .contents-->
-
-                                            </article>	
-
-                                        </div><!--/ .team-contents-->
-
-                                    </div>
-
-                                </div><!--/ .row-->
-
-                            </div><!--/ .container-->
-
-                        </section><!--/ .team-member-->		
-
-                    </section>
+                    </section><!--/ .section-->
 
                 </section><!--/ .section-->
 
 
 
+                <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
+
 
                 <footer id="footer">
-
-
-
 
                     <div class="bottom-footer clearfix">
 
@@ -331,14 +256,16 @@
 
                                 <div class="col-sm-6">
 
-
+                                    <div class="copyright">
+                                        Copyright © 2014. <a target="_blank" href="http://webtemplatemasters.com">Aristogatos</a>. Todos los derechos reservados
+                                    </div><!--/ .cppyright-->
 
                                 </div>
 
                                 <div class="col-sm-3 col-sm-offset-3">
 
                                     <div class="developed">
-                                        Developed by <a target="_blank" >Aristogatos</a>
+                                        Developed by <a target="_blank" href="http://webtemplatemasters.com/">los Aristogatos</a>
                                     </div><!--/ .developed-->
 
                                 </div>
@@ -374,10 +301,6 @@
             <script src="js/layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
             <script src="js/jquery.mixitup.js"></script>
             <script src="js/jquery.mb.YTPlayer.js"></script>
-            <script src="js/video-js/video.js"></script>
-            <script>
-                videojs.options.flash.swf = "js/video-js/video-js.swf";
-            </script>
             <script src="js/jquery.smoothscroll.js"></script>
             <script src="js/flexslider/jquery.flexslider.js"></script>
             <script src="js/fancybox/jquery.fancybox.pack.js"></script>
@@ -387,81 +310,275 @@
             <script src="js/jquery.touchswipe.min.js"></script>
             <script src="js/config.js"></script>
             <script src="js/custom.js"></script>
-
-
-
         </tag:notloggedin>
-        <tag:loggedin>
-        <h1>Welcome ${facebook.name} (${facebook.id})</h1>
-        <form action="./post" method="post">
-            <textarea  cols="50" rows="1" name="message"></textarea>
-            <input type="submit" name="post" value="Post en facebook" />
-            
-        </form>
-        
-       <form action="./funcionalidadBonos" method="get">
-           Seleccione la tienda de la cual quiere comprar su bono y el valor del bono, el cual debe ser mayor a 10.000 COP:
-           <select name="Select" value="seleccionarTienda" multiple="multiple">
-                        <option value="1">Zara</option>
-                        <option value="2">Arturo Calle</option>
-                         <option value="3">Fuera De Serie</option>
-                          <option value="4">Bkul</option>
-                           <option value="5">Lec Lee</option>
-                            <option value="6">Studio F</option>
-                             <option value="7">Pronto</option>
-                             <option value="8">Armi</option>
-            </select>
-     
-            Ingresar valor:
-           <input type="text"  name="messagecomprar"></input>
-           <input type="submit" name="comprarBonos" value="Comprar Bonos" />
-          </form>
 
-        <form action="./enviarBono" method="get">
-            Ingresar valor:
-            <input type="text"  name="messageEnviar"></input>
-            Ingresar correo del amigo al que deseas enviar el bono:
-            <input type="text"  name="email"></input>
-            <input type="submit" name="enviarBono" value="Enviar Bono" />
-            
-        </form>   
-             
-            
-        <form action="./redimirBono" method="get">
-            Ingrese el codigo del bono a redimir:
-           <input type="text"  name="message1"></input>
-            <input type="submit" name="comprarBonos" value="Redimir Bonos" />
-            
-        </form>
-        <form action="./verAmigos" method="post">
-            
-            <input type="submit" name="verAmigos" value="Ver Amigos" />
-            
-        </form>
-        <form action="./verAmigos" method="post">
-            
-            <input type="submit" name="verAmigos" value="Ver Amigos" />
-            
-        </form>
-        <form action="./agregarTienda" method="get">
-            Seleccione la tienda de la cual quiere cambiar su nombre:
-           <select name="Select1" value="seleccionarTienda" multiple="multiple">
-                        <option value="1">Zara</option>
-                        <option value="2">Arturo Calle</option>
-                         <option value="3">Fuera De Serie</option>
-                          <option value="4">Bkul</option>
-                           <option value="5">Lec Lee</option>
-                            <option value="6">Studio F</option>
-                             <option value="7">Pronto</option>
-                             <option value="8">Armi</option>
-            </select>
-            Ingrese el nombre de la tienda que quiere agregar:
-            <input type="text"  name="message2"></input>
-            <input type="submit" name="agregarTienda" value="gestion de Tiendas" />
-            
-        </form>
-        <a href="./logout">logout</a>
-    </tag:loggedin>
+
+        <tag:loggedin>
+           <body data-spy="scroll" data-target="#navigation" class="page-template">
+	
+	
+	<!-- - - - - - - - - - - - - - Loader - - - - - - - - - - - - - - - - -->	
+
+	
+	<div class="loader"></div><!--/ .loader-->
+	
+	
+	<!-- - - - - - - - - - - - - end Loader - - - - - - - - - - - - - - - -->	
+	
+	
+	<!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->	
+	
+
+	<header id="header">
+
+		<div class="header-in">
+
+			<h1 id="logo"><a href="index.html">TuMejorOpcion</a></h1>
+
+			<a id="responsive-nav-button" class="responsive-nav-button" href="#"></a>
+
+			<nav id="navigation" class="navigation">
+
+				<ul>
+					<li><a href="#">Cuenta</a>
+						<ul>
+							<li><a href="./logout">Cerrar sesion</a></li>
+						</ul>
+					</li>
+
+				</ul>
+
+			</nav><!--/ #navigation-->
+
+		</div><!--/ .header-in-->
+
+	</header><!--/ #header-->
+
+
+	<!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
+
+
+	<!-- - - - - - - - - - - - - - Wrapper - - - - - - - - - - - - - - - - -->
+	
+
+	<div id="wrapper">
+
+		<section class="section">
+
+			<div id="content">
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-xs-12">
+							<hgroup class="section-title align-center">
+								<h1>Bonos</h1>
+							</hgroup>	
+						</div>
+					</div><!--/ .row-->			
+
+					<div class="row">
+
+						<section id="main" class="col-md-8">
+
+							<article class="entry main-entry single">
+
+
+
+								<h2 class="entry-title">Compra un bono</h2><!--/ .entry-title-->
+
+								<div class="wisget widget_categories">
+									Seleccione la tienda:
+									<br>
+<ul><li>
+									<form action="./funcionalidadBonos" method="get">
+
+										<select name="Select" value="seleccionarTienda" multiple="multiple">
+											<option value="1">Zara</option>
+											<option value="2">Arturo Calle</option>
+											<option value="3">Fuera De Serie</option>
+											<option value="4">Bkul</option>
+											<option value="5">Lec Lee</option>
+											<option value="6">Studio F</option>
+											<option value="7">Pronto</option>
+											<option value="8">Armi</option>
+										</select>
+
+										Ingresar valor (debe ser mayor a COP $10.000):
+										<input type="text"  name="messagecomprar"></input>
+										<br><Br>
+										<input type="submit" class="button turquoise large opacityRun" name="comprarBonos" value="Comprar Bonos" />
+									</form>
+									<br><br>
+</li><li>
+
+									<h2 class="entry-title">Regala un bono</h2><!--/ .entry-title-->
+									<form action="./enviarBono" method="get">
+										Seleccione la tienda:
+										<select name="Select" value="seleccionarTienda" multiple="multiple">
+											<option value="1">Zara</option>
+											<option value="2">Arturo Calle</option>
+											<option value="3">Fuera De Serie</option>
+											<option value="4">Bkul</option>
+											<option value="5">Lec Lee</option>
+											<option value="6">Studio F</option>
+											<option value="7">Pronto</option>
+											<option value="8">Armi</option>
+										</select>
+
+										Ingresar valor (debe ser mayor a COP $10.000):
+										<input type="text"  name="messageEnviar"></input>
+										Ingresar correo del amigo al que deseas enviar el bono:
+										<input type="text"  name="email"></input>
+										<br><br>
+										<input type="submit" class="button turquoise large opacityRun" name="enviarBono" value="Enviar Bono" />
+
+									</form>   
+</li></ul>
+								</div><!--/ .entry-body-->
+
+							</article><!--/ .entry-->									
+
+						</section><!--/ #main-->
+
+						<aside id="sidebar" class="col-md-4">
+
+							<div class="widget widget_search">
+
+								<form action="./redimirBono" method="get">
+                <h2 class="entry-title">Redime</h2><!--/ .entry-title-->
+                <input type="text"  name="message1"></input>
+                <BR><BR>
+                <input type="submit" class="button turquoise large opacityRun" name="comprarBonos" value="Redimir Bonos" />
+
+            </form>
+
+							</div><!--/ .widget-->
+
+							<div class="widget widget_text">
+
+								<h3 class="widget-title">Edita tus tiendas</h3>
+
+								 <form action="./agregarTienda" method="get">
+                Renombrar tienda:
+                <select name="Select1" value="seleccionarTienda" multiple="multiple">
+                    <option value="1">Zara</option>
+                    <option value="2">Arturo Calle</option>
+                    <option value="3">Fuera De Serie</option>
+                    <option value="4">Bkul</option>
+                    <option value="5">Lec Lee</option>
+                    <option value="6">Studio F</option>
+                    <option value="7">Pronto</option>
+                    <option value="8">Armi</option>
+                </select>
+                Ingrese el nombre de la tienda que quiere agregar:
+                <input type="text"  name="message2"></input>
+                <BR><BR>
+                <input type="submit" class="button turquoise large opacityRun" name="agregarTienda" value="gestion de Tiendas" />
+
+            </form>
+
+							</div><!--/ .widget-->
+
+							
+							
+
+							<div class="widget widget_recent_posts">
+
+							
+
+								<section>
+
+									<article class="entry"> 
+
+										<div class="quote-image">
+											<a href="#" class="single-image">
+												<img alt="" src="http://viatoreschristi.com/wp-content/uploads/2013/02/clothes.jpg" />
+											</a>	
+										</div><!--/ .entry-image-->
+
+										
+									</article><!--/ .entry-->
+
+									
+
+
+								</section>
+</div>
+							
+
+						</aside><!--/ #sidebar-->		
+
+					</div><!--/ .row-->
+
+				</div><!--/ .container-->
+
+			</div><!--/ #content-->
+
+		</section><!--/ .section-->
+
+
+		<!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
+
+
+		<footer id="footer">
+
+			<div class="bottom-footer clearfix">
+
+				<div class="container">
+
+					<div class="row">
+
+						<div class="col-sm-6">
+
+							<div class="copyright">
+								Copyright © 2013. <a target="_blank" href="http://webtemplatemasters.com">ThemeMakers</a>. All rights reserved
+							</div><!--/ .cppyright-->
+
+						</div>
+
+						<div class="col-sm-3 col-sm-offset-3">
+
+							<div class="developed">
+								Developed by <a target="_blank" href="http://webtemplatemasters.com/">ThemeMakers</a>
+							</div><!--/ .developed-->
+
+						</div>
+
+					</div><!--/ .row-->
+
+				</div><!--/ .container-->
+
+			</div><!--/ .bottom-footer-->	
+
+		</footer><!--/ #footer-->
+
+
+		<!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
+
+
+	</div><!--/ #wrapper-->
+
+
+	<!-- - - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - - -->
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="js/jquery.queryloader2.js"></script>
+	<script src="js/jquery.easing.1.3.min.js"></script>
+	<script src="js/jquery.cycle.all.min.js"></script>
+	<script src="js/jquery.smoothscroll.js"></script>
+	<script src="js/waypoints.min.js"></script>
+	<script src="twitter/jquery.tweet.js"></script>
+	<script src="js/fancybox/jquery.fancybox.pack.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/custom.js"></script>
+
+        </tag:loggedin>
 
 
     </body>
