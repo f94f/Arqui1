@@ -35,7 +35,7 @@ public class verHistorial extends HttpServlet {
         }
         List<Bono> resp = ServicioPersistenciaMock.darInstancia().darBonosDeUsuario(id);
         try {
-            String impr = ahora+"";
+            String impr ="";
             for (int i = 0; i < resp.size(); i++) {
                 Bono b = resp.get(i);
                 impr += "Un Bono de la tienda " + b.darReferencia() + " , cuyo código es: " + b.darCodigo() + "\n";

@@ -10,6 +10,7 @@ import javax.mail.Message.RecipientType;
 import org.codemonkey.simplejavamail.Email;
 import org.codemonkey.simplejavamail.Mailer;
 
+
 public class javaMail {
 	public static void enviarMensaje(String destinatario, String numero)
         {
