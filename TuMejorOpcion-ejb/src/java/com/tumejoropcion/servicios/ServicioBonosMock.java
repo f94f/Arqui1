@@ -86,7 +86,7 @@ public class ServicioBonosMock implements IServicioBonosMockRemote, IServicioBon
     @Override
     public boolean redimirBono(String cod)
     {
-        Bono este=(Bono) persistencia.findById(Bono.class, cod);
+        Bono este =(Bono) persistencia.findById(Bono.class, cod);
         if(este.estaVigente()){
             if(!este.redimido()) {
                 return true;

@@ -267,7 +267,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             for (Object t : findAll(c))
             {
                 Tienda tien = (Tienda) t;
-                if (tien.darIdentificador() == (Long)id)
+                if (tien.darIdentificador() == (int)id)
                 {
                     return tien;
                 }
@@ -278,7 +278,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             for (Object b : findAll(c))
             {
                 Bono bon = (Bono) b;
-                if (id.equals(bon.darCodigo()))
+                if (((String) id).equals(bon.darCodigo()))
                 {
                     return bon;
                 }

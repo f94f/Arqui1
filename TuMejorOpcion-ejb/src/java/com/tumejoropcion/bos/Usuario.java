@@ -71,5 +71,21 @@ public class Usuario {
     public void agregarBono(Bono bono) {
         bonos.add(bono);
     }
-            
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList getBonos() {
+        return bonos;
+    }
+
+    public void setBonos(ArrayList bonos) {
+        this.bonos = bonos;
+    }
+    
 }

@@ -4,7 +4,6 @@ package com.tumejoropcion.servicios;
 import com.tumejoropcion.bos.Tienda;
 import com.tumejoropcion.exception.OperacionInvalidaException;
 import java.util.List;
-import javax.ejb.EJB;
 import javax.ejb.Singleton;
 
 /**

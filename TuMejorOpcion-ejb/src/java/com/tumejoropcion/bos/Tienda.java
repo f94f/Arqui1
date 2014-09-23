@@ -87,7 +87,29 @@ public class Tienda {
     public void cambiarIdentificador(int id) {
         identificador = id;
     }
-    
-    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList<Bono> getBonos() {
+        return bonos;
+    }
+
+    public void setBonos(ArrayList<Bono> bonos) {
+        this.bonos = bonos;
+    }
+
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
     
 }
