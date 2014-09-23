@@ -477,6 +477,19 @@
                 <input type="submit" class="button turquoise large opacityRun" name="agregarTienda" value="gestion de Tiendas" />
 
             </form>
+                                                                
+                                                                 <br>
+            <form action="./verAmigos" method="post">
+
+                <input type="submit" class="button turquoise large opacityRun" name="verAmigos" value="Ver Amigos" />
+
+            </form>
+<br>
+            <form action="./verHistorial" method="post">
+
+                <input type="submit"  class="button turquoise large opacityRun" name="verAmigos" value="Ver bonos comprados" />
+
+            </form>
 
 							</div><!--/ .widget-->
 
