@@ -1,28 +1,19 @@
-/**
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id$ ServicioVendedoresMockTest.java
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 3.0
- *
- * Ejercicio: Muebles de los Alpes
- * Autor: Juan Sebastián Urrego
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- */
 
-package com.losalpes.servicios;
+package com.tumejoropcion.servicios;
 
-import javax.naming.InitialContext;
+import com.tumejoropcion.bos.Bono;
+import com.tumejoropcion.servicios.IServicioBonosMockRemote;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Properties;
-import com.losalpes.entities.Vendedor;
+import javax.naming.InitialContext;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Clase encargada de realizar pruebas unitarias
- * @author Juan Sebastián Urrego
  */
-public class ServicioVendedoresMockTest
+public class ServicioBonoMockTest
 {
     //-----------------------------------------------------------
     // Atributos
@@ -31,8 +22,9 @@ public class ServicioVendedoresMockTest
     /**
      * Interface con referencia al servicio de vendedores en el sistema
      */
-    private IServicioVendedoresMockRemote servicio;
-
+    private IServicioBonosMockRemote servicio;
+    
+    private Bono  b;
     //-----------------------------------------------------------
     // Métodos de inicialización y terminación
     //-----------------------------------------------------------
@@ -44,6 +36,9 @@ public class ServicioVendedoresMockTest
     @Before
     public void setUp() throws Exception
     {
+            GregorianCalendar c = new GregorianCalendar(2,12,2014);
+            Date y = c.getTime();
+            b = new Bono( 12000, "Lec Lee", y);
         try
         {
             Properties env = new Properties();
@@ -52,7 +47,7 @@ public class ServicioVendedoresMockTest
             env.put("org.omg.CORBA.ORBInitialPort", "3700");
             InitialContext contexto;
             contexto = new InitialContext(env);
-            servicio = (IServicioVendedoresMockRemote) contexto.lookup("com.losalpes.servicios.IServicioVendedoresMockRemote");
+            servicio = (IServicioBonosMockRemote) contexto.lookup("com.tumejoropcion.servicios.IServicioBonosMockRemote");
         } 
         catch (Exception e)
         {
@@ -68,19 +63,19 @@ public class ServicioVendedoresMockTest
      * Método de prueba para agregar un vendedor al sistema
      */
     @Test
-    public void testAgregarVendedor() throws Exception
+    public void testAgregarBono() throws Exception
     {
-        Vendedor vendedor = null;
-        servicio.agregarVendedor(vendedor);
+        Bono bono = null;
+        servicio.agregarBono(bono);
     }
 
     /**
      * Método de prueba para eliminar un vendedor al sistema
      */
     @Test
-    public void testEliminarVendedor() throws Exception
+    public void testEliminarBono() throws Exception
     {
-        servicio.eliminarVendedor(1L);
+        servicio.eliminarBono(b.darCodigo());
     }
 
 }
