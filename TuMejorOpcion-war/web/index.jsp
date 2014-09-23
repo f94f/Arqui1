@@ -475,6 +475,7 @@
                 <input type="text"  name="message2"></input>
                 <BR><BR>
                 <input type="submit" class="button turquoise large opacityRun" name="agregarTienda" value="gestion de Tiendas" />
+<<<<<<< HEAD
                 
                 <br>
             <form action="./verAmigos" method="post">
@@ -488,6 +489,21 @@
                 <input type="submit"  class="button turquoise large opacityRun" name="verAmigos" value="Ver bonos comprados" />
 
             </form>
+=======
+
+            </form>
+                                                                
+                                                                 <br>
+            <form action="./verAmigos" method="post">
+
+                <input type="submit" class="button turquoise large opacityRun" name="verAmigos" value="Ver Amigos" />
+
+            </form>
+<br>
+            <form action="./verHistorial" method="post">
+
+                <input type="submit"  class="button turquoise large opacityRun" name="verAmigos" value="Ver bonos comprados" />
+>>>>>>> origin/master
 
             </form>
 
