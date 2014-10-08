@@ -325,7 +325,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
         {
             String actual= bonos.get(i).darIdComprador();
             boolean esta= false;
-            for(int j = 0 ; j< u2.size() ||esta==false;j++)
+            for(int j = 0 ; j< u2.size() ;j++)
             {
                 String id= u2.get(j);
                 if(id.equals(actual)){
