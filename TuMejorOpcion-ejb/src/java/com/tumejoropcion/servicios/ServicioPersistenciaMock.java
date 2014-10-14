@@ -52,13 +52,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             GregorianCalendar c = new GregorianCalendar(2,12,2014);
             Date y = c.getTime();
             
-            bonos.add(new Bono( 12000, "Zara", y,"userDefault"));
-            bonos.add(new Bono( 12000, "Lec Lee", y,"userDefault"));
-            bonos.add(new Bono( 12000, "Zara", y,"userDefault"));
-            bonos.add(new Bono( 12000, "Studio F", y,"userDefault"));
-            bonos.add(new Bono( 12000, "Fuera de Serie", y,"userDefault"));
-            bonos.add(new Bono( 12000, "Arturo Calle", y,"userDefault"));
-            bonos.add(new Bono( 12000, "Arturo Calle", y,"userDefault"));
+           
             
             tiendas = new ArrayList<Tienda>();
 

@@ -372,7 +372,7 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<hgroup class="section-title align-center">
-								<h1>Bonos</h1>
+								<h1>Bonos ${facebook.name}</h1>
 							</hgroup>	
 						</div>
 					</div><!--/ .row-->			

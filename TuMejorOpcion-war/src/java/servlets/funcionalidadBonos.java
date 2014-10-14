@@ -28,7 +28,6 @@ import javax.servlet.http.HttpServletResponse;
 public class funcionalidadBonos extends HttpServlet {
 
     private static final long serialVersionUID = -7453606094644144082L;
-    private Usuario user;
 
    //private ServicioBonosMock persist;
     //private ServicioLoginMock servicio;
@@ -59,17 +58,18 @@ public class funcionalidadBonos extends HttpServlet {
         String message = request.getParameter("messagecomprar");
         String usuario = request.getParameter("usuario");
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
-        GregorianCalendar c = new GregorianCalendar(2014, 12, 12);
-        Date y = c.getTime();
+        Date y = new Date();
         int valor = Integer.parseInt(message);
 
         Bono nuevo = new Bono(valor, tienda, y,usuario);
         try {
-
+        
+            System.out.println("Agregó un bono");
+            //Este metodo imprime el codigo del bono
             ServicioPersistenciaMock.darInstancia().create(nuevo);
 
             System.out.println(tienda);
-            System.out.println("agregó");
+            System.out.println(y);
             
             //  System.out.println(ServicioPersistenciaMock.getBono().get(7).darCodigo()+"");
             System.out.println(ServicioPersistenciaMock.darInstancia().findAll(Bono.class).size());

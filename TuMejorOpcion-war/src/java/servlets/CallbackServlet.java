@@ -24,6 +24,5 @@ public class CallbackServlet extends HttpServlet {
         Login bean = (Login) request.getSession().getAttribute("bean");
         bean.inicializarUsuario(facebook);
         response.sendRedirect(request.getContextPath() + "/");
-        
     }
 }
